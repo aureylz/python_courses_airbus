@@ -1,13 +1,6 @@
 # Module 4: Essential libraries
 
-TODO : Organiser les libs par thème: datascience, web, log/trace, Test (TU, Lint, quality...),  secu (base64 & more)  …
+Two part are covered by this module:
+- [CLI And WebScrpping](01-CLI_Webscrapping.md)
+- Web dev and APIs
 
-Proposed libs :
-Networking: requests, flask, fastapi, 
-Data/Parsing: beautifulsoup, Pandas
-General: 
-click/argparse
-Collection
-loguru (mieux que logger)
-asyncio/threads (idée tp requests aiohttp)
-Boto
