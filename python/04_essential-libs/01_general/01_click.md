@@ -1,5 +1,12 @@
 # Click
 
+1. [What is this?](#What-is-this?)
+2. [How to install?](#How-to-install?)
+3. [How to use it?](#How-to-use-it?)
+    1. [Development](#Development)
+    2. [Usage](#Usage)
+4. [References](#References)
+
 ## What is this?
 
 Click is a Python package for creating beautiful command line interfaces in a composable way with as little code as
@@ -17,7 +24,9 @@ Click in three points:
 
 ## How to install?
 
-> pip install click
+````shell
+pip install click
+````
 
 _Tips:_ Think to add it in your **requirements.txt** file
 
@@ -27,11 +36,15 @@ _Tips:_ Think to add it in your **requirements.txt** file
 
 Import the library
 
-````python import click ````
+````python 
+import click 
+````
 
 Initiate the minimal contract of commands
 
-````python @click.command() ````
+````python 
+@click.command() 
+````
 
 Define the CLI arguments
 
@@ -55,16 +68,21 @@ if __name__ == '__main__':
 
 ### Usage
 
-Execute your python script with the help of the CLI:
+Execute your python script with the help of the CLI, it will ask you to add your name:
 
-`````shell
+````shell
 $ python hello.py --count=3
-Your name: John
+Your name: 
+````
+
+This will display the following result (if the name was John :)
+
+````text
 Hello John!
 Hello John!
 Hello John!
-`````
+````
 
 ## References
 
-https://click.palletsprojects.com/en/8.1.x
+- https://click.palletsprojects.com/en/8.1.x
