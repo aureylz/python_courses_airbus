@@ -21,7 +21,7 @@ _Tips:_ Think to add it in your **requirements.txt** file
 
 ### Development
 
-Import the library
+Import the module
 
 ````python 
 ````

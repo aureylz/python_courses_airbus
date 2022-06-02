@@ -9,10 +9,14 @@
 
 ## What is this?
 
+It's used to create, configure, and manage AWS services, such as Amazon Elastic Compute
+Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3). The SDK provides an object-oriented API as well as
+low-level access to AWS services.
+
 ## How to install?
 
 ````shell
-pip install 
+pip install boto3
 ````
 
 _Tips:_ Think to add it in your **requirements.txt** file
@@ -21,40 +25,92 @@ _Tips:_ Think to add it in your **requirements.txt** file
 
 ### Development
 
-Import the library
+Import the module
 
 ````python 
+import boto3
 ````
 
-Initiate the minimal contract of commands
-
-````python 
-````
-
-Define the CLI arguments
+Load the considered resource or client depending on the need
 
 ````python
+ec2_resource = boto3.resource('ec2')
+rds_client = boto3.client('rds')
 ````
 
 Integrate it in your code
 
 ````python
-def hello(count, name):
-    pass
-
-
-if __name__ == '__main__':
-    hello()
+ec2_resource.get_instance_id()
+rds_client.get_instance_id()
 ````
 
 ### Usage
 
-Execute your python script with the help of the CLI:
+Write the following script to manipulate S3 file
 
-````shell
-$ python hello.py
+````python
+import json
+import os
+
+import boto3
+
+
+class S3(object):
+    """
+    Provide S3 file functions
+    """
+
+    def __init__(self, bucket_name: str):
+        """
+        object setup
+        :param str bucket_name: the bucket where the file must be stored
+        """
+        self.bucket_name = bucket_name
+        self.s3_resource = boto3.resource('s3')
+
+    def get(self, file_name: str):
+        """
+        get data from file in S3 bucket
+        :param str file_name: the filename to get content
+        :return: none instead if issue
+        """
+        return self.s3_resource.Object(self.bucket_name, file_name).get()['Body'].read()
+
+    def update(self, file_name: str, data: dict):
+        """
+        update s3 file content data
+        :param str file_name: the filename to update
+        :param dict data: the data to record in the file
+        :return: none instead if issue
+        """
+        try:
+            if 'bound method' in str(data['data']['results']):
+                data['data'].pop('results')
+        except Exception:
+            pass
+        return self.s3_resource.Object(self.bucket_name, file_name).put(Body=(bytes(json.dumps(data).encode('UTF-8'))))
+
+    def delete(self, file_name: str):
+        """
+        delete a file
+        :param str file_name: the filename to delete
+        :return: none instead if issue
+        """
+        return self.s3_resource.Object(self.bucket_name, file_name).delete()
+
+
+if __name__ == '__main__':
+    file_name = str("hello.json")
+    s3 = S3(bucket_name=str("myBucket"))
+
+    print('Create file', s3.update(file_name, {"message": "hello!"}))
+    print('Get file content', s3.get(file_name))
+    print('Delete file', s3.delete(file_name))
 ````
+
+And execute it
 
 ## References
 
-- 
+- https://boto3.amazonaws.com/v1/documentation/api/latest/index.html

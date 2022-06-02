@@ -9,9 +9,9 @@ Python modules
 
 - [General](01_general)
     - [Click](01_general/01_click.md)
-    - [Collection](01_general/02_collection.md)
+    - [Collections](01_general/02_collections.md)
     - [Loguru](01_general/03_loguru.md)
-    - [Threads](01_general/04_threads.md)
+    - [Threads](01_general/04_threading.md)
     - [Boto](01_general/05_boto.md)
 - [Networking](02_networking)
     - [Requests](02_networking/01_requests.md)
