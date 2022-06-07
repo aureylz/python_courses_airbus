@@ -1,18 +1,3 @@
----
-jupytext:
-  cell_metadata_filter: -all
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.13.8
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
----
-
 # Click
 
 1. [What is this?](#What-is-this?)
@@ -39,9 +24,9 @@ Click in three points:
 
 ## How to install?
 
-````shell
+```shell
 pip install click
-````
+```
 
 _Tips:_ Think to add it in your **requirements.txt** file
 
@@ -51,26 +36,26 @@ _Tips:_ Think to add it in your **requirements.txt** file
 
 Import the module
 
-````python 
+```python 
 import click 
-````
+```
 
 Initiate the minimal contract of commands
 
-````python 
+```python 
 @click.command() 
-````
+```
 
 Define the CLI arguments
 
-````python
+```python
 @click.option('--count', default=1, help='Number of greetings.')
 @click.option('--name', prompt='Your name', help='The person to greet.')
-````
+```
 
 Integrate it in your code
 
-````python
+```python
 def hello(count, name):
     """Simple program that greets NAME for a total of COUNT times."""
     for x in range(count):
@@ -79,24 +64,24 @@ def hello(count, name):
         
 if __name__ == '__main__':
     hello()
-````
+```
 
 ### Usage
 
 Execute your python script with the help of the CLI, it will ask you to add your name:
 
-````shell
+```shell
 $ python hello.py --count=3
 Your name: 
-````
+```
 
 This will display the following result (if the name was John :)
 
-````text
+```text
 Hello John!
 Hello John!
 Hello John!
-````
+```
 
 ## References
 
