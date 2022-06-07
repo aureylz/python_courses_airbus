@@ -22,21 +22,21 @@ Nothing todo, it's available by default in the python environment :)
 
 Import the module
 
-````python 
+```python 
 import threading
-````
+```
 
 Integrate it in your code
 
-````python
+```python
 x = threading.Thread(target=thread_function, args=(1,))
-````
+```
 
 ### Usage
 
 Write a python script as follow
 
-````shell
+```shell
 import logging
 import threading
 import time
@@ -61,11 +61,11 @@ if __name__ == "__main__":
         logging.info(f"Main    : before joining thread {index}")
         thread.join()
         logging.info(f"Main    : thread {index} done")
-````
+```
 
 And execute it by CLI:
 
-````shell
+```shell
 $ python hello.py
 22:51:05: Main    : create and start thread 0
 22:51:05: Thread 0: starting
@@ -82,7 +82,7 @@ $ python hello.py
 22:51:07: Main    : thread 1 done
 22:51:07: Main    : before joining thread 2
 22:51:07: Main    : thread 2 done
-````
+```
 
 ## References
 

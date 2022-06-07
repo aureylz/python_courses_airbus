@@ -11,9 +11,9 @@
 
 ## How to install?
 
-````shell
+```shell
 pip install 
-````
+```
 
 _Tips:_ Think to add it in your **requirements.txt** file
 
@@ -23,37 +23,37 @@ _Tips:_ Think to add it in your **requirements.txt** file
 
 Import the module
 
-````python 
-````
+```python 
+```
 
 Initiate the minimal contract of commands
 
-````python 
-````
+```python 
+```
 
 Define the CLI arguments
 
-````python
-````
+```python
+```
 
 Integrate it in your code
 
-````python
+```python
 def hello(count, name):
     pass
 
 
 if __name__ == '__main__':
     hello()
-````
+```
 
 ### Usage
 
 Execute your python script with the help of the CLI:
 
-````shell
+```shell
 $ python hello.py
-````
+```
 
 ## References
 

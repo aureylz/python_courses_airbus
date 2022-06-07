@@ -14,9 +14,9 @@ Python programming language.
 
 ## How to install?
 
-````shell
+```shell
 pip install pandas
-````
+```
 
 _Tips:_ Think to add it in your **requirements.txt** file
 
@@ -26,28 +26,28 @@ _Tips:_ Think to add it in your **requirements.txt** file
 
 Import the module
 
-````python  
+```python  
 import pandas
-````
+```
 
 Integrate it in your code
 
-````python
+```python
 def hello(count, name):
     pass
 
 
 if __name__ == '__main__':
     hello()
-````
+```
 
 ### Usage
 
 Execute your python script with the help of the CLI:
 
-````shell
+```shell
 $ python hello.py
-````
+```
 
 ## References
 

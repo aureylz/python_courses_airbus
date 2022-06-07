@@ -108,7 +108,7 @@ We used a subcommand called "hello-world" and a particular option "--count".
 Within the same program, we will now create a command scrap that will take other options and will have a different method. 
 
 For that, reorganize the program like this :
-````python
+```python
 import click as click
 
 
@@ -132,7 +132,7 @@ def scrap():
 if __name__ == '__main__':
     main()
 
-````
+```
 Now we are ready to start the second part dedicated to implement the "scrap" method.
 ## 3. WebScrapping and BeautifulSoup
 ```python

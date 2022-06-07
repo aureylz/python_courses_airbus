@@ -18,9 +18,9 @@ application.
 
 ## How to install?
 
-````shell
+```shell
 pip install loguru
-````
+```
 
 _Tips:_ Think to add it in your **requirements.txt** file
 
@@ -30,23 +30,23 @@ _Tips:_ Think to add it in your **requirements.txt** file
 
 Import the module
 
-````python 
+```python 
 from loguru import logger
-````
+```
 
 Integrate it in your code
 
-````python
+```python
 logger.add("file_{time}.log")
 
 logger.debug("hello")
-````
+```
 
 ### Usage
 
 Track the function usage with the following example:
 
-````python
+```python
 import sys
 from loguru import logger
 
@@ -67,17 +67,17 @@ def can_crash(x):
 if __name__ == '__main__':
     can_crash(1)
     can_crash(0)
-````
+```
 
 Execute your python script with the help of the CLI:
 
-````shell
+```shell
 $ python can_crash.py
-````
+```
 
 It will display the following result
 
-````shell
+```shell
 2022-06-02 22:25:27.500 | DEBUG    | __main__:can_crash:10 - 1
 2022-06-02 22:25:27.501 | DEBUG    | __main__:can_crash:14 - 1.0
 2022-06-02 22:25:27.501 | DEBUG    | __main__:can_crash:10 - 0
@@ -107,11 +107,11 @@ Traceback (most recent call last):
               └ 0
 
 ZeroDivisionError: division by zero
-````
+```
 
 And you can get the information from the log file also:
 
-````shell
+```shell
 % cat can_crash_2022-06-02_22-25-27_495887.log 
 2022-06-02 22:25:27.500 | DEBUG    | __main__:can_crash:10 - 1
 2022-06-02 22:25:27.501 | DEBUG    | __main__:can_crash:14 - 1.0
@@ -127,7 +127,7 @@ Traceback (most recent call last):
   File "t.py", line 13, in can_crash
     res = 1 / x
               └ 0
-````
+```
 
 ## References
 

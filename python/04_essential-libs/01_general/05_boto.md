@@ -15,9 +15,9 @@ low-level access to AWS services.
 
 ## How to install?
 
-````shell
+```shell
 pip install boto3
-````
+```
 
 _Tips:_ Think to add it in your **requirements.txt** file
 
@@ -27,29 +27,29 @@ _Tips:_ Think to add it in your **requirements.txt** file
 
 Import the module
 
-````python 
+```python 
 import boto3
-````
+```
 
 Load the considered resource or client depending on the need
 
-````python
+```python
 ec2_resource = boto3.resource('ec2')
 rds_client = boto3.client('rds')
-````
+```
 
 Integrate it in your code
 
-````python
+```python
 ec2_resource.get_instance_id()
 rds_client.get_instance_id()
-````
+```
 
 ### Usage
 
 Write the following script to manipulate S3 file
 
-````python
+```python
 import json
 import os
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     print('Create file', s3.update(file_name, {"message": "hello!"}))
     print('Get file content', s3.get(file_name))
     print('Delete file', s3.delete(file_name))
-````
+```
 
 And execute it
 

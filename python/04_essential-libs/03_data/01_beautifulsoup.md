@@ -14,11 +14,23 @@
 It's a Python package for parsing HTML and XML documents. It creates a parse tree for parsed pages that can be used to
 extract data from HTML, which is useful for web scraping
 
+#### What is a parser?
+
+Lke you do when you read a book, you analyze the form (title, chapter...)  and read the content. 
+A parser will do the same but by a software processing!
+
+#### HTML/XML page
+
+- structure a page => definition of the form
+- tags
+
+
+
 ## How to install?
 
-````shell
+```shell
 pip install beautifulsoup4
-````
+```
 
 _Tips:_ Think to add it in your **requirements.txt** file
 
@@ -28,13 +40,13 @@ _Tips:_ Think to add it in your **requirements.txt** file
 
 Import the module
 
-````python 
+```python 
 from bs4 import BeautifulSoup
-````
+```
 
 Define the HTML page
 
-````python 
+```python 
 html_doc = """
 <html>
     <head>
@@ -46,35 +58,35 @@ html_doc = """
     </body>
 </html>
 """
-````
+```
 
 Load the HTML in Beautifulsoup
 
-````python 
+```python 
 soup = BeautifulSoup(html_doc) 
-````
+```
 
 Display each content of the HTML page
 
-````python
+```python
 for p in soup.find_all('p'):
     print(p)
-````
+```
 
 ### Usage
 
 Execute your python script with the help of the CLI:
 
-````shell 
+```shell 
 $ python hello.py
-````
+```
 
 Which display the following information:
 
-````text
+```text
 <p>Texte à lire 1</p>
 <p>Texte à lire 2</p>
-````
+```
 
 ## References
 

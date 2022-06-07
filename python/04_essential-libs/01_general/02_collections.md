@@ -24,9 +24,9 @@ Nothing todo, it's available by default in the python environment :)
 
 Import the module
 
-````python 
+```python 
 import collections
-````
+```
 
 Or better, load only the concerned function which can be:
 
@@ -42,13 +42,13 @@ Or better, load only the concerned function which can be:
 
 Example:
 
-````python
+```python
 from collections import UserList
-````
+```
 
 Integrate it in your code
 
-````python
+```python
 from collections import UserList
 
 
@@ -77,19 +77,19 @@ print(L)
 
 # Deleting From List 
 L.remove()
-````
+```
 
 ### Usage
 
 Execute your python script with the help of the CLI
 
-````shell
+```shell
 $ python my_list.py
-````
+```
 
 It will display the following result
 
-````shell
+```shell
 Original List
 [1, 2, 3, 4]
 After Insertion
@@ -100,7 +100,7 @@ Traceback (most recent call last):
   File "my_list.py", line 8, in remove
     raise RuntimeError("Deletion not allowed") 
 RuntimeError: Deletion not allowed
-````
+```
 
 ## References
 
