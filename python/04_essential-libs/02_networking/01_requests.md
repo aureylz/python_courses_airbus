@@ -9,10 +9,12 @@
 
 ## What is this?
 
+Requests is a library that allows you to make HTTP Requests with a simple fashion.
+
 ## How to install?
 
 ```shell
-pip install 
+pip install requests
 ```
 
 _Tips:_ Think to add it in your **requirements.txt** file
@@ -24,37 +26,57 @@ _Tips:_ Think to add it in your **requirements.txt** file
 Import the module
 
 ```python 
+import requests
 ```
 
-Initiate the minimal contract of commands
-
-```python 
-```
-
-Define the CLI arguments
+Minimal example : 
 
 ```python
+def get_request():
+    response = requests.get("https://python.org")
+    # Response will be the object containing the data from the URL
+    print(response)
+    # Will print <Response [200]>
+    
+    print(response.text)
+    # Will display the body of the response, here will respond with the page itself (html)
+
 ```
 
-Integrate it in your code
-
-```python
-def hello(count, name):
-    pass
-
-
-if __name__ == '__main__':
-    hello()
-```
 
 ### Usage
 
-Execute your python script with the help of the CLI:
+Query parameters and headers can be added like this : 
 
-```shell
-$ python hello.py
+```python
+response = requests.get(
+    'https://api.github.com/search/repositories',
+    params={'q': 'requests+language:python'},
+    headers={'Accept': 'application/vnd.github.v3.text-match+json'},
+)
+```
+
+You can simply use all HTTP verbs like this : 
+
+```python
+requests.post('https://httpbin.org/post', data={'key':'value'})
+requests.put('https://httpbin.org/put', data={'key':'value'})
+requests.delete('https://httpbin.org/delete')
+requests.head('https://httpbin.org/get')
+requests.patch('https://httpbin.org/patch', data={'key':'value'})
+requests.options('https://httpbin.org/get')
+```
+
+The ```response``` will allow you to retrieve everything you need
+
+```python
+response = requests.get("https://python.org")
+
+response.status_code # Will print the status, 200 if everything is ok
+response.text # Will print the response text
+response.json() # Will print the response formatted in json, very useful for API calls
 ```
 
 ## References
 
-- 
+- https://requests.readthedocs.io/en/latest/
