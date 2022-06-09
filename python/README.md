@@ -28,3 +28,9 @@
 - [Python advanced](03_python-advanced/)
 - [Essential libraries](04_essential-libs/)
 - [Cybersec Tools](05_cybersec-tools/)
+
+## How to setup and launch notebook?
+
+> bash setup.sh
+
+And that's all :p
