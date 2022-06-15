@@ -22,6 +22,14 @@ Click in three points:
 2. automatic help page generation
 3. supports lazy loading of subcommands at runtime
 
+### Why this module?
+
+Python has a number of command-line interface builder tools. The standard tool which comes includes with python is
+Argparse. In fact, other Python modules are existing and by default the modules named **argparse** is integrated.
+
+Argparse is designed to parse arguments and provide extensive customization of cli help documentation. Click is designed
+to automatically handle common cli command tasks and quickly build a standard help menu.
+
 ## How to install?
 
 ```shell
@@ -61,7 +69,7 @@ def hello(count, name):
     for x in range(count):
         click.echo(f"Hello {name}!")
 
-        
+
 if __name__ == '__main__':
     hello()
 ```
@@ -86,3 +94,4 @@ Hello John!
 ## References
 
 - https://click.palletsprojects.com/en/8.1.x
+- https://collectiveacuity.medium.com/argparse-vs-click-227f53f023dc

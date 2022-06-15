@@ -11,10 +11,21 @@
 
 Loguru is a library which aims to bring enjoyable logging in Python.
 
-#### What is logging?
+### What is logging?
 
-It's the fact to record the application's events in a storage to allow to track, debug, monitor... the behaviour of the
-application.
+It's the fact to record the application's events in a storage to allow the tracking, debugging, monitoring... the
+behaviour of the application.
+
+### Why this module?
+
+Although loguru is written “from scratch” and does not rely on standard logging internally, both libraries serve the
+same purpose: provide functionalities to implement a flexible event logging system. The main difference is that standard
+logging requires the user to explicitly instantiate named Logger and configure them with Handler, Formatter and Filter,
+while loguru tries to narrow down the amount of configuration steps.
+
+Apart from that, usage is globally the same, once the logger object is created or imported you can start using it to log
+messages with the appropriate severity (logger.debug("Dev message"), logger.warning("Danger!"), etc.), messages which
+are then sent to the configured handlers.
 
 ## How to install?
 
@@ -132,3 +143,5 @@ Traceback (most recent call last):
 ## References
 
 - https://loguru.readthedocs.io/en/stable/overview.html#features
+- https://loguru.readthedocs.io/en/stable/resources/migration.html
+- https://alimbekov.com/en/python-logging-vs-loguru

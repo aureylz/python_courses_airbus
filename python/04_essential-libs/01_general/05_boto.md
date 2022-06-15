@@ -9,9 +9,8 @@
 
 ## What is this?
 
-It's used to create, configure, and manage AWS services, such as Amazon Elastic Compute
-Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3). The SDK provides an object-oriented API as well as
-low-level access to AWS services.
+It's used to create, configure, and manage AWS services, such as Amazon Elastic Compute Cloud (Amazon EC2) and Amazon
+Simple Storage Service (Amazon S3). The SDK provides an object-oriented API as well as low-level access to AWS services.
 
 ## How to install?
 
@@ -22,6 +21,30 @@ pip install boto3
 _Tips:_ Think to add it in your **requirements.txt** file
 
 ## How to use it?
+
+### Authentication
+
+To be able to contact AWS services, we must be authenticated with the corresponding credentials.
+
+This can be done through the module parameters, example:
+
+```python
+session = boto3.Session(
+    aws_access_key_id=ACCESS_KEY,
+    aws_secret_access_key=SECRET_KEY,
+    aws_session_token=SESSION_TOKEN
+)
+```
+
+Or with the environment variables, example:
+
+- __AWS_ACCESS_KEY_ID__ - The access key for your AWS account.
+- __AWS_SECRET_ACCESS_KEY__ - The secret key for your AWS account.
+- __AWS_SESSION_TOKEN__ - The session key for your AWS account. This is only needed when you are using temporary
+  credentials. The AWS_SECURITY_TOKEN environment variable can also be used, but is only supported for backwards
+  compatibility purposes. AWS_SESSION_TOKEN is supported by multiple AWS SDKs besides python.
+
+To ease the next steps this course will be based on the environment variables.
 
 ### Development
 
@@ -47,12 +70,10 @@ rds_client.get_instance_id()
 
 ### Usage
 
-Write the following script to manipulate S3 file
+### Write the following script to manipulate S3 file
 
 ```python
 import json
-import os
-
 import boto3
 
 
@@ -71,7 +92,7 @@ class S3(object):
 
     def get(self, file_name: str):
         """
-        get data from file in S3 bucket
+        get s3 file data
         :param str file_name: the filename to get content
         :return: none instead if issue
         """
@@ -79,7 +100,7 @@ class S3(object):
 
     def update(self, file_name: str, data: dict):
         """
-        update s3 file content data
+        update s3 file content
         :param str file_name: the filename to update
         :param dict data: the data to record in the file
         :return: none instead if issue
@@ -93,7 +114,7 @@ class S3(object):
 
     def delete(self, file_name: str):
         """
-        delete a file
+        delete s3 file
         :param str file_name: the filename to delete
         :return: none instead if issue
         """
@@ -101,10 +122,15 @@ class S3(object):
 
 
 if __name__ == '__main__':
+    bucket_name = str("myBucket")
     file_name = str("hello.json")
-    s3 = S3(bucket_name=str("myBucket"))
+    file_data = dict({"message": "Hello!"})
+    
+    # Class instance
+    s3 = S3(bucket_name=bucket_name)
 
-    print('Create file', s3.update(file_name, {"message": "hello!"}))
+    # Execute the functions of the S3 class
+    print('Create file', s3.update(file_name, file_data))
     print('Get file content', s3.get(file_name))
     print('Delete file', s3.delete(file_name))
 ```
@@ -114,3 +140,4 @@ And execute it
 ## References
 
 - https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+- https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html
