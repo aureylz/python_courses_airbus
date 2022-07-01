@@ -1,5 +1,16 @@
 # Module 2: Python basics
 
+## Getting started
+
+We will see in this modules some basics of python language.  
+You can use python interpreter also called REPL (Read Evaluate Print Loop), to check code snippets given in the module.  
+Note: "ctrl + d" to quit REPL.
+```bash
+/usr/local/bin/python3
+>>> x = 'you'
+>>> print('hello '+x)
+```
+
 ## Syntax
 
 ### Indentation
@@ -36,11 +47,10 @@ Are case sensitive.
 Are dynamically typed at runtime and can change type based on their content after they've been set.
 
 ```python
-my_first_var = "I'm a string"
-my_second_var = 'An this is another string'
-my_pi = 3.1415926 # is a float
-vrai = True
-my_pi = vrai # now my_pi is a bool
+my_str = "Airbus Cyber Diploma"     # this is a string
+my_pi = 3.1415926                   # float
+vrai = True                         # boolean
+my_pi = vrai                        # now my_pi is a boolean
 ```
 
 #### Conditional assignment
@@ -61,14 +71,18 @@ color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black
 x = None
 ```
 
-### str
+### String
 
 No char type in python
 
 ```python
-x = str("Airbus Cyber Diploma")
-print(x[2])  # = r
-size = len('azerty') # = 6
+"I'm a string"
+'And this is another string'
+str(10) == str('10')
+r'hello\nyou'    # => 'hello\\nyou'  (raw)
+
+len('azerty')    # == 6
+'azerty'[0]      # == 'a'
 ```
 
 ### Numerical
@@ -103,36 +117,39 @@ x = complex(1j)
 ### Sequences
 
 #### list
-
+Collection of ordered and indexed items.  
 ```python
-aircrafts = list(("A320", "A330", "A350"))
+aircrafts = list(("A320", "A330", "A350")) # ['A320', 'A330', 'A350']
 ```
 
 #### tuple
-
+Immutable sequences of ordered and indexed items.  
 ```python
-helicopters = tuple(("H160", "H175"))
+helicopters = tuple(("H160", "H175")) # ('H160', 'H175')
 ```
 
 #### range
-
+Sequence representing an arithmetic progression of integers.  
 ```python
-x = range(6)
+x = range(6) # list(x) => [0, 1, 2, 3, 4, 5]
 ```
 
-### dict
-
+### Dictionaries
+Collection of ordered (since python 3.7) and unique items (key-value pairs).  
 ```python
-aircrafts_types = dict(name='A320', age='single_aisle')
+aircrafts_types = dict(name='A320', age='single_aisle') # {'name': 'A320', 'age': 'single_aisle'}
+aircrafts_types.keys()
+aircrafts_types.values()
+aircrafts_types.items()
 ```
 
 ### Sets
-
+Unordered collection of unique (and unindexed) elements.  
 #### set
 
 ```python
-single_aisle = set(("A319", "A320", "A321"))
-wide_bodies = set(("A330", "A350", "A380"))
+single_aisle = set(("A319", "A320", "A321")) # {'A321', 'A320', 'A319'}
+wide_bodies = set(("A330", "A350", "A380")) # {'A380', 'A330', 'A350'}
 ```
 
 #### frozenset
@@ -145,14 +162,12 @@ oldies = frozenset(("concorde", "caravel", "a300"))
 
 Almost any value is evaluated to True if it has some sort of content.
 
-Any string is True, except empty strings.
-
-Any number is True, except 0.
-
+Any string is True, except empty strings.  
+Any number is True, except 0.  
 Any list, tuple, set, and dictionary are True, except empty ones.
 
 ```python
-x = bool(5)
+bool(True) == bool(5) == bool("hello") == bool ([1,2,3])
 # These are the list of values which evaluates to False
 bool(False)
 bool(None)
@@ -302,26 +317,176 @@ else:
 
 #### for
 
+```python
+# loop over simple collections
+for i in ['a', 'b', 'c']:
+    for j in range(3):
+        print(i+str(j), end=" ")
+    print()
+
+# loop over dictionary
+cities={'TLS':'Toulouse', 'NYC': 'New York'}
+for code in cities:
+    print(code, ' : ', cities[code])
+```
+
 #### while
+
+```python
+while True:
+    s=input()
+    if(s=='end'):
+        break
+```
 
 ### Exceptions handling
 
+```python
+try:
+    raise ValueError('custom error')    # execution will raise an error
+    print('wont be executed')
+except(ValueError) as e:                # catch the error
+    print('catch error:', e)
+finally:                                # block executed after
+    print('always executed at the end')
+```
+
 ## Functions
+
+```python
+def square(x):
+    return x * x
+
+square(3)
+```
 
 ## Files I/O
 
-## Parsing
+Write or read file with Python  
+```python
+f = open('python-test.txt', 'x') # x: create if not existing / a: append / w: overwrite
+f.write("content file!")
+f.write("\nnew line")
 
-> Beaucoup de parsing de format sur des notebook jupyter.
+f=open('python-test.txt', 'r')  # read mode
+f.read()        # read until the end
+f.seek(0)       # point at the beginning
+f.readline()    # read first line
+f.close()
+```
+
+Using a with-block:  
+```python
+with open('python-test.txt') as f:
+    f.read()
+```
+
+## Parsing
 
 ### JSON
 
+Parse json string (to python dict).  
+```python
+import json
+json_string = '{"PAR":"Paris", "MRS":"Marseille", "TLS":"Toulouse"}' # read string or file
+json_dict = json.loads(json_string)
+json_dict['MRS']
+```
+
+Convert python dict to json string.  
+```python
+import json
+json_dict = {
+    "PAR": "Paris", 
+    "MRS": "Marseille", 
+    "TLS": "Toulouse"
+}
+json_string = json.dumps(json_dict)
+print(json_string)
+```
+
 ### CSV
 
+Write a csv file.  
+```python
+import csv
+with open('cities.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['TLS','Toulouse'])
+    writer.writerow(['MRS','Marseille'])
+    writer.writerow(['PAR','Paris'])
+
+# or with DictWriter
+fieldnames = ['code', 'city']
+with open('cities.csv', 'w', newline='') as csvfile:
+    fieldnames = ['code', 'city']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerow({'code': 'TLS', 'city': 'Toulouse'})
+    writer.writerow({'code': 'MRS', 'city': 'Marseille'})
+    writer.writerow({'code': 'PAR', 'city': 'Paris'})
+```
+
+Read csv file.
+```python
+import csv
+with open('cities.csv', encoding="utf8") as f:
+    reader = csv.reader(f)
+    for line in reader:
+        next(reader)    # return next line as a list
+        print('|'.join(line))     # can also print(line[1])
+
+# or with DictReader
+fieldnames = ['code', 'city']
+with open('cities.csv', encoding="utf8") as f:
+    reader = csv.DictReader(f, fieldnames)
+    next(reader)    # return next line as a dict
+    for line in reader:
+        print(f"code {line['code']} for city {line['city']}")
+```
+
 ## Comprehension
+Concise syntax to build lists, sets, and dictionaries.  
 
 ### list
 
+```python
+words = ["tree", "flower", "bee"]
+numbers = [len(word) for word in words] # [4, 6, 3]
+```
 ### dict
+```python
+cities = {'paris':'france', 'madrid':'spain', 'hamburg':'germany'}
+countries = {c:city for city,c in cities.items()}    # {'france': 'paris', 'spain': 'madrid', 'germany': 'hamburg'}
+```
 
 ## Unit tests
+
+```python
+assert sum(range(5)) == 10                  # ok => no output
+assert sum(range(5)) == 11, "Should be 10"  # ko => AssertionError: Should be 10
+```
+
+In a file (function + test):
+```python
+def square(x):
+    return x**2
+
+def test_square_5():
+    assert square(5) == 25, "Should be 25"
+
+
+def test_square_12():
+    assert square(12) == 144, "Should be 144"
+
+
+if __name__ == "__main__":
+    test_square_5()
+    test_square_12()
+    print("OK all tests done")
+```
+Launch test:
+```bash
+python test_square.py
+```
+To write unit tests on your application choose a test runner: unittest, pytest, nose...
