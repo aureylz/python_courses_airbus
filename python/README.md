@@ -29,8 +29,7 @@
 - [Essential libraries](04_essential-libs/)
 - [Cybersec Tools](05_cybersec-tools/)
 
-## How to setup and launch notebook?
+## How to set up and launch the notebook?
 
 > bash setup.sh
 
-And that's all :p
