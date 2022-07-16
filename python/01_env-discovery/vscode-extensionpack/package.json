@@ -1,0 +1,42 @@
+{
+    "name": "airbus-cyberdiploma",
+    "displayName": "Airbus CyberDiploma",
+    "description": "Extensions Pack for students in Airbus CyberDiploma",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.68.0"
+    },
+    "categories": [
+        "Extension Packs"
+    ],
+    "extensionPack": [ 
+        "aaron-bond.better-comments", 
+        "ahebrank.yaml2json", 
+        "dongli.python-preview", 
+        "donjayamanne.python-environment-manager", 
+        "eamodio.gitlens", 
+        "evan-buss.font-switcher", 
+        "frhtylcn.pythonsnippets", 
+        "hbenl.vscode-test-explorer", 
+        "jspolancor.presentationmode", 
+        "littlefoxteam.vscode-python-test-adapter", 
+        "mohsen1.prettify-json", 
+        "ms-python.python", 
+        "ms-python.vscode-pylance", 
+        "ms-toolsai.jupyter", 
+        "ms-toolsai.jupyter-keymap", 
+        "ms-toolsai.jupyter-renderers", 
+        "ms-vscode-remote.remote-ssh", 
+        "ms-vscode-remote.remote-ssh-edit", 
+        "ms-vscode.makefile-tools", 
+        "ms-vscode.test-adapter-converter", 
+        "njpwerner.autodocstring", 
+        "qcz.text-power-tools", 
+        "redhat.vscode-yaml", 
+        "ryu1kn.partial-diff", 
+        "VisualStudioExptTeam.vscodeintellicode", 
+        "wholroyd.jinja", 
+        "yzhang.markdown-all-in-one", 
+        "ZainChen.json"
+    ]
+}
