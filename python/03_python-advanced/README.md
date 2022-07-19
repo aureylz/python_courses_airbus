@@ -1,22 +1,17 @@
 # Module 3: Python Advanced
 
 ## Object oriented programming
+Sebastien
 
 ## Importation/Structuration de modules
+Olivier
 
-## Recursivité (TP ?)
+## Functional programming
+Guillaume / Manon
 
-## Multi tache
+## Multi task
+Sebastien
 
-## Dataframe
+## Database
+Olivier
 
-## jupyter notebook (TP)
-
-- numpy
-- scipy
-- pandas
-- statsmodels
-- scikit-learn
-- TensorFlow
-- Matplotlib
-- data science
