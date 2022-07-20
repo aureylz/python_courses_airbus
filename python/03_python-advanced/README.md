@@ -1,17 +1,21 @@
 # Module 3: Python Advanced
 
 ## Object oriented programming
-Sebastien
+[Course](01_oo)
 
-## Importation/Structuration de modules
-Olivier
+## Modules
+[Course](02_modules)
+
 
 ## Functional programming
+[Course](03_functional_programming)
 Guillaume / Manon
 
 ## Multi task
+[Course](04_threading)
 Sebastien
 
 ## Database
+[Course](05_database_access)
 Olivier
 
