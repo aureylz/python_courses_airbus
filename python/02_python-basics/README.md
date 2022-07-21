@@ -1,4 +1,4 @@
-# Module 2: Python basics
+# Module 2: Python basics (5h30)
 
 ## Getting started
 
