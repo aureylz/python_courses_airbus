@@ -1,4 +1,6 @@
 # Importation/Structuration de modules
+🕑 1h
+
 ## Definition
 A module are used to organize code into files and folders.<br>
 Basically a module is a .py file containing python code.
@@ -68,6 +70,50 @@ Most of the time packet are folders with a file by module
 import avionincs.tools.say_hello as m
 m.say_hello()
 ```
+
+## Hands-on
+Using your favorite IDE
+### step1 - Define a package "greetings" with to functions:
+ 1. ```say_hello()```
+ 2. ```say_something(text)```
+
+### step2 - Use this module from the main file
+ 1. create ```main.py``` file
+ 2. call ```say_hello()``` function
+ 3. call ```say_something("World")``` function
+
+### step3 - Use alias
+Use an alias in order to be able to call the functions like this:
+```python
+g.say_something("Hello World")
+```
+
+### step4 - Make the module "runnable"
+Add the following code to the greeting package
+```python
+if __name__ == "__main__":
+     say_something("Hello from Greeting modeule module")
+```
+
+Launch
+```python
+python3 greetings.py
+python3 main.py
+```
+
+❓What are the differences ? <br>
+❓How do you explain the different behaviours ? 
+
+### step5 - For the braves 💪
+1. Create a module called ```sys```
+2. Create a function ```getprofile```. This function should return a constant of your choice.
+3. Create a function ```gettemperature```. This function should return "100 degrees".
+4. Import your ```sys``` module from ```main.py```
+5. Call ```print(sys.gettemperature())```
+6. Call ```print(sys.getprofile())```
+
+❓ What happens ? <br>
+❓ Why ? 
 
 
 ## Tricks
