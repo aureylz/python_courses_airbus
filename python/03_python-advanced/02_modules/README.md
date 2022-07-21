@@ -1,7 +1,6 @@
 Importation and Structure of modules
 ==============
 
-- [Importation and Structure of modules](#importation-and-structure-of-modules)
 - [Definition](#definition)
 - [Syntax](#syntax)
 - [Standards modules](#standards-modules)
