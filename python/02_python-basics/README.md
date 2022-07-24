@@ -5,6 +5,7 @@
 We will see in this modules some basics of python language.  
 You can use python interpreter also called REPL (Read Evaluate Print Loop), to check code snippets given in the module.  
 Note: "ctrl + d" to quit REPL.
+
 ```bash
 /usr/local/bin/python3
 >>> x = 'you'
@@ -117,25 +118,33 @@ x = complex(1j)
 ### Sequences
 
 #### list
+
 Collection of ordered and indexed items.  
+
 ```python
 aircrafts = list(("A320", "A330", "A350")) # ['A320', 'A330', 'A350']
 ```
 
 #### tuple
+
 Immutable sequences of ordered and indexed items.  
+
 ```python
 helicopters = tuple(("H160", "H175")) # ('H160', 'H175')
 ```
 
 #### range
+
 Sequence representing an arithmetic progression of integers.  
+
 ```python
 x = range(6) # list(x) => [0, 1, 2, 3, 4, 5]
 ```
 
 ### Dictionaries
+
 Collection of ordered (since python 3.7) and unique items (key-value pairs).  
+
 ```python
 aircrafts_types = dict(name='A320', age='single_aisle') # {'name': 'A320', 'age': 'single_aisle'}
 aircrafts_types.keys()
@@ -144,7 +153,9 @@ aircrafts_types.items()
 ```
 
 ### Sets
+
 Unordered collection of unique (and unindexed) elements.  
+
 #### set
 
 ```python
@@ -360,9 +371,35 @@ def square(x):
 square(3)
 ```
 
+### Variable named (keyword) arguments
+
+> Use the double asterisk ```**```` before kwargs as the unpacking operator
+
+```python
+def my_catalog(p1: str, p2: int, **kwargs):
+    print(p1, p2)
+    for key, value in kwargs.items():
+        print(key, '-', value)
+
+if __name__ == "__main__":
+    myFunction(a = 'A220', b = 'A319', c = 'A320', d = 'A321')
+```
+
+### Both positional and names parameters
+
+```python
+def my_catalog_2(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+if __name__ == "__main__":
+    myFunction("A320", "A400M", a = 319, b = 320, c = 321)
+```
+
 ## Files I/O
 
 Write or read file with Python  
+
 ```python
 f = open('python-test.txt', 'x') # x: create if not existing / a: append / w: overwrite
 f.write("content file!")
@@ -376,6 +413,7 @@ f.close()
 ```
 
 Using a with-block:  
+
 ```python
 with open('python-test.txt') as f:
     f.read()
@@ -386,6 +424,7 @@ with open('python-test.txt') as f:
 ### JSON
 
 Parse json string (to python dict).  
+
 ```python
 import json
 json_string = '{"PAR":"Paris", "MRS":"Marseille", "TLS":"Toulouse"}' # read string or file
@@ -408,6 +447,7 @@ print(json_string)
 ### CSV
 
 Write a csv file.  
+
 ```python
 import csv
 with open('cities.csv', 'w', newline='') as csvfile:
@@ -428,6 +468,7 @@ with open('cities.csv', 'w', newline='') as csvfile:
 ```
 
 Read csv file.
+
 ```python
 import csv
 with open('cities.csv', encoding="utf8") as f:
@@ -446,6 +487,7 @@ with open('cities.csv', encoding="utf8") as f:
 ```
 
 ## Comprehension
+
 Concise syntax to build lists, sets, and dictionaries.  
 
 ### list
@@ -454,7 +496,9 @@ Concise syntax to build lists, sets, and dictionaries.
 words = ["tree", "flower", "bee"]
 numbers = [len(word) for word in words] # [4, 6, 3]
 ```
+
 ### dict
+
 ```python
 cities = {'paris':'france', 'madrid':'spain', 'hamburg':'germany'}
 countries = {c:city for city,c in cities.items()}    # {'france': 'paris', 'spain': 'madrid', 'germany': 'hamburg'}
@@ -468,6 +512,7 @@ assert sum(range(5)) == 11, "Should be 10"  # ko => AssertionError: Should be 10
 ```
 
 In a file (function + test):
+
 ```python
 def square(x):
     return x**2
@@ -485,8 +530,11 @@ if __name__ == "__main__":
     test_square_12()
     print("OK all tests done")
 ```
+
 Launch test:
+
 ```bash
 python test_square.py
 ```
+
 To write unit tests on your application choose a test runner: unittest, pytest, nose...
