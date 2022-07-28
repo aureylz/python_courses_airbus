@@ -1,4 +1,15 @@
 # Python Essential Libs
+- [Python Essential Libs](#python-essential-libs)
+  - [Part 1 CLI and web scrapping](#part-1-cli-and-web-scrapping)
+  - [1. Project presentation and setup](#1-project-presentation-and-setup)
+    - [1.1 Context](#11-context)
+    - [Objective of this hands-on session](#objective-of-this-hands-on-session)
+    - [1.2 Create venv and project structure](#12-create-venv-and-project-structure)
+  - [2. Create your first Hello World, the CLI way](#2-create-your-first-hello-world-the-cli-way)
+    - [2.1 Add count option to hello World](#21-add-count-option-to-hello-world)
+    - [2.2 Options in a nutshell](#22-options-in-a-nutshell)
+    - [2.3 Grouping several subcommands](#23-grouping-several-subcommands)
+  - [3. WebScrapping and BeautifulSoup](#3-webscrapping-and-beautifulsoup)
 ## Part 1 CLI and web scrapping
 
 ## 1. Project presentation and setup
@@ -157,13 +168,32 @@ def scrap():
 
 if __name__ == '__main__':
     main()
-
+```
 Now we are ready to start the second part dedicated to implement the ```scrap``` method.
 
 ## 3. WebScrapping and BeautifulSoup
 
-```python
-raise NotImplementedError
-```
+- Request the page `https://debian.org/releases`
 
+Use the requests library to get this page. 
+
+:muscle: Handle properly resource, session and HTTP Error.
+
+- Find the header 'index of releases' in the page. Use beautiful soup to do this !
+
+Use the "find_all() function to get it
+
+- Navigate the tree using siblings to find the list below the header.
+
+Do not hesitate to display the page source code to help you. 
+
+- Within the list, find the `<a>` tag containing the url of the Bullseye release
+
+Little tip: there is a way to get an attribute such as the href attribute of the `<a>` tag
+
+- Follow the link and open the page contianing the details of Bullseye
+
+Objective is now to do the same to find the "AMD64 Release details"
+
+- :muscle: You can find this url with a single line using find_all and a regex :)
 

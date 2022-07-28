@@ -24,5 +24,5 @@
 
 ## TP
 
-- [CLI And WebScrpping](01-CLI_Webscrapping.md)
+- [CLI And WebScrpping](04_TP/01-CLI_Webscrapping.md)
 
