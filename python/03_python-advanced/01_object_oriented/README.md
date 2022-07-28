@@ -32,37 +32,16 @@ Let's create the simplest possible class to start coding around airpcrafts, and 
 
 ```python
 # Declaration of our new class
-class Aircraft:
+class SimpleAircraft:
     """This new type will be used to model any sort of airplanes"""
 ```
 
-Now, let's use this new class by creating a new my_plane variable of type Aircraft:
+Now, let's use this new class by creating 3 new variables / instances of our new SimpleAircraft type:
 
 ```python
-# Instanciation of our new class
-my_plane = Aircraft()
-```
-
-Let's create 3 planes and assign them some specific properties:
-
-```python
-# My first plane
-my_a320 = Aircraft()
-my_a320.model_name = 'A320'
-my_a320.is_military = False
-my_a320.is_cargo = False
-
-# I need a second plane in my program
-another_plane = Aircraft()
-another_plane.model_name = 'A400M'
-another_plane.is_military = True
-another_plane.is_cargo = False
-
-# and a last one
-my_cargo = Aircraft()
-my_cargo.model_name = 'C295'
-my_cargo.is_military = True
-my_cargo.is_cargo = True
+a320 = SimpleAircraft()
+a400m = SimpleAircraft()
+c295 = SimpleAircraft()
 ```
 
 ### Constructors
