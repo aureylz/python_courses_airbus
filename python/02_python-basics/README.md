@@ -88,7 +88,7 @@ len('azerty')    # == 6
 
 #### String formating
 
-Python 3.7 introduced the concept of f-string which is a nicer syntax compared to the old ```.fmt() approach:
+Python 3.7 introduced the concept of f-string which is a nicer syntax compared to the former ```.format() ``` approach:
 
 ```python
 model = 'A220'
@@ -96,9 +96,28 @@ category = 'Single Aisle'
 msg = f"Our {model} is a {category}" 
 ```
 
-Result:
+Output:
 
 => Our ```A220``` is a ```Single Aisle```
+
+#### Common ```str``` operations
+
+Extract from the official [docs.python.org](https://docs.python.org/3.7/library/stdtypes.html#string-methods):
+
+- [str.encode(encoding="utf-8", errors="strict")](https://docs.python.org/3.7/library/stdtypes.html#str.encode): Return an encoded version of the string as a bytes object
+
+- [str.endswith(suffix[, start[, end]])](https://docs.python.org/3.7/library/stdtypes.html#str.endswith): Return True if the string ends with the specified suffix, otherwise return False
+
+- [str.find(sub[, start[, end]])](https://docs.python.org/3.7/library/stdtypes.html#str.find): Return the lowest index in the string where substring sub is found within the slice s[start:end]. The find() method should be used only if you need to know the position of sub. Otherwise, use the ```in``` operator:
+  > ```if 'Py' in 'Python'```
+
+- [str.index(sub[, start[, end]])](https://docs.python.org/3.7/library/stdtypes.html#str.index): Like find(), but raise ValueError when the substring is not found
+
+- [str.join(iterable)](https://docs.python.org/3.7/library/stdtypes.html#str.join): Return a string which is the concatenation of the strings in iterable. The separator between elements is the string providing this method.
+
+- [str.replace(old, new[, count])](https://docs.python.org/3.7/library/stdtypes.html#str.replace): Return a copy of the string with all occurrences of substring old replaced by new.
+
+- [str.startswith(prefix[, start[, end]])](https://docs.python.org/3.7/library/stdtypes.html#str.startswith): Return True if string starts with the prefix, otherwise return False.
 
 ### Numerical
 
@@ -328,7 +347,13 @@ liste, dictionnaire, tuple,
 
 ### Conditionals
 
-#### if .. elif .. else
+Conditions can be used to execute a block of code if and only if some criterias are met.
+
+Conditions can be nested (indented).
+
+There is no ```select...case``` construct in Python, just use ```if``` .. ```elif```
+
+#### ```if``` .. ```elif``` .. ```else```
 
 ```python
 catalog_item = 'A220'
