@@ -66,7 +66,7 @@ color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black
 
 ## Built-in data types
 
-### None
+### ```None```
 
 ```python
 x = None
@@ -74,7 +74,7 @@ x = None
 
 ### String
 
-No char type in python
+No ```char``` type in python, only ```str```, but individual characters can be accessed with the ```[]```operator.
 
 ```python
 "I'm a string"
@@ -85,6 +85,20 @@ r'hello\nyou'    # => 'hello\\nyou'  (raw)
 len('azerty')    # == 6
 'azerty'[0]      # == 'a'
 ```
+
+#### String formating
+
+Python 3.7 introduced the concept of f-string which is a nicer syntax compared to the old ```.fmt() approach:
+
+```python
+model = 'A220'
+category = 'Single Aisle'
+msg = f"Our {model} is a {category}" 
+```
+
+Result:
+
+=> Our ```A220``` is a ```Single Aisle```
 
 ### Numerical
 
@@ -373,7 +387,7 @@ square(3)
 
 ### Variable named (keyword) arguments
 
-> Use the double asterisk ```**```` before kwargs as the unpacking operator
+> Use the double asterisk ```**``` before kwargs as the unpacking operator
 
 ```python
 def my_catalog(p1: str, p2: int, **kwargs):
@@ -433,6 +447,7 @@ json_dict['MRS']
 ```
 
 Convert python dict to json string.  
+
 ```python
 import json
 json_dict = {
