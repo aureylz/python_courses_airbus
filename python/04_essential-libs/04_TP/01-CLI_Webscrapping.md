@@ -3,8 +3,8 @@
   - [Part 1 CLI and web scrapping](#part-1-cli-and-web-scrapping)
   - [1. Project presentation and setup](#1-project-presentation-and-setup)
     - [1.1 Context](#11-context)
-    - [Objective of this hands-on session](#objective-of-this-hands-on-session)
-    - [1.2 Create venv and project structure](#12-create-venv-and-project-structure)
+    - [1.2 Objective of this hands-on session](#12-objective-of-this-hands-on-session)
+    - [1.3 Create venv and project structure](#13-create-venv-and-project-structure)
   - [2. Create your first Hello World, the CLI way](#2-create-your-first-hello-world-the-cli-way)
     - [2.1 Add count option to hello World](#21-add-count-option-to-hello-world)
     - [2.2 Options in a nutshell](#22-options-in-a-nutshell)
@@ -22,7 +22,7 @@ perfectly aware of what you are doing!
 
 We will cover in this module three libraries that will all serve a particular purpose. 
 
-### Objective of this hands-on session
+### 1.2 Objective of this hands-on session
 
 We will construct a CLI application that will gather information on the web and do somehting with it.
 
@@ -47,7 +47,7 @@ And should produce an output like this:
 Not yet implemented here :)
 ```
 
-### 1.2 Create venv and project structure
+### 1.3 Create venv and project structure
 
 First, let's start by creating the project skeleton and its ```virtualenv```.
 
