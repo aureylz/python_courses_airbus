@@ -102,9 +102,20 @@ my_cargo = SimpleAircraft('C295', is_military=True, is_cargo=True)
 a350 = SimpleAircraft('A350F', is_cargo=True)
 ```
 
-### Class methods
+### Functions in a class
 
 classes can (and most probably should...) also contain methods (functions) that can change the state of your internal variables.
+
+There are three distinct types of functions tied to ```class```:
+
+- class methods (using ```@classmethod``` decorator and ```cls``` as the first parameter)
+  - has access to class variables
+  - has no access to instance variables
+- static methods (using ```@staticmethod``` decorator)
+  - has no access to neither class nor instance variables
+  - usually an helper method that only relies on the passed in parameters
+- instance methods (using ```self``` as the first parameter)
+  - has access to both class and instance variables 
 
 In the below example, we'll append a ```convert()``` method that'll change the cabin layout of our ```SimpleAircraft```.
 
