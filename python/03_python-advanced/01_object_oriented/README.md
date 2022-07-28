@@ -271,7 +271,7 @@ plane4.all_family ['A319', 'A320', 'A321']
 
 Classes can be inherited / derived (specialized) so that child classes benefit from parent's properties and methods.
 
-Derived classes may override (specialize) methods of their base classes (all methods in Python are ```virtual``` in C++ terms)
+Derived classes may override (specialize) methods of their base classes
 
 Python has two built-in functions that work with inheritance:
 
