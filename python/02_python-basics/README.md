@@ -102,7 +102,7 @@ Result:
 
 ### Numerical
 
-#### int
+#### ```int```
 
 ```python
 x = 1
@@ -111,7 +111,7 @@ z = -2
 x = int(320)
 ```
 
-#### float
+#### ```float```
 
 ```python
 x = 35e3
@@ -120,7 +120,7 @@ z = -87.7e100
 pi = float(3.1415926)
 ```
 
-#### complex
+#### ```complex```
 
 ```python
 x = 3+5j
@@ -129,9 +129,11 @@ z = -5j
 x = complex(1j)
 ```
 
+## Comprehension
+
 ### Sequences
 
-#### list
+#### ```list```
 
 Collection of ordered and indexed items.  
 
@@ -139,7 +141,16 @@ Collection of ordered and indexed items.
 aircrafts = list(("A320", "A330", "A350")) # ['A320', 'A330', 'A350']
 ```
 
-#### tuple
+##### ```list``` comprehension
+
+Concise syntax to build lists (equivalent to a ```for``` loop).  
+
+```python
+words = ["tree", "flower", "bee"]
+numbers = [len(word) for word in words] # [4, 6, 3]
+```
+
+#### ```tuple```
 
 Immutable sequences of ordered and indexed items.  
 
@@ -147,7 +158,7 @@ Immutable sequences of ordered and indexed items.
 helicopters = tuple(("H160", "H175")) # ('H160', 'H175')
 ```
 
-#### range
+#### ```range```
 
 Sequence representing an arithmetic progression of integers.  
 
@@ -157,7 +168,7 @@ x = range(6) # list(x) => [0, 1, 2, 3, 4, 5]
 
 ### Dictionaries
 
-Collection of ordered (since python 3.7) and unique items (key-value pairs).  
+```dict``` is collection of ordered (since python 3.7) and unique items (key-value pairs).  
 
 ```python
 aircrafts_types = dict(name='A320', age='single_aisle') # {'name': 'A320', 'age': 'single_aisle'}
@@ -166,24 +177,33 @@ aircrafts_types.values()
 aircrafts_types.items()
 ```
 
+#### ```dict``` comprehension
+
+Concise syntax to build dictionaries (equivalent to a ```for``` loop).  
+
+```python
+cities = {'paris':'france', 'madrid':'spain', 'hamburg':'germany'}
+countries = {c:city for city,c in cities.items()}    # {'france': 'paris', 'spain': 'madrid', 'germany': 'hamburg'}
+```
+
 ### Sets
 
 Unordered collection of unique (and unindexed) elements.  
 
-#### set
+#### ```set```
 
 ```python
 single_aisle = set(("A319", "A320", "A321")) # {'A321', 'A320', 'A319'}
 wide_bodies = set(("A330", "A350", "A380")) # {'A380', 'A330', 'A350'}
 ```
 
-#### frozenset
+#### ```frozenset```
 
 ```python
 oldies = frozenset(("concorde", "caravel", "a300"))
 ```
 
-#### bool
+#### ```bool```
 
 Almost any value is evaluated to True if it has some sort of content.
 
@@ -205,19 +225,19 @@ bool({})
 
 ### Binary
 
-#### bytes
+#### ```bytes```
 
 ```python
 x = bytes(5)
 ```
 
-#### bytearray
+#### ```bytearray```
 
 ```python
 x = bytearray(5)
 ```
 
-#### memoryview
+#### ```memoryview```
 
 ```python
 x = memoryview(bytes(5))
@@ -499,24 +519,6 @@ with open('cities.csv', encoding="utf8") as f:
     next(reader)    # return next line as a dict
     for line in reader:
         print(f"code {line['code']} for city {line['city']}")
-```
-
-## Comprehension
-
-Concise syntax to build lists, sets, and dictionaries.  
-
-### list
-
-```python
-words = ["tree", "flower", "bee"]
-numbers = [len(word) for word in words] # [4, 6, 3]
-```
-
-### dict
-
-```python
-cities = {'paris':'france', 'madrid':'spain', 'hamburg':'germany'}
-countries = {c:city for city,c in cities.items()}    # {'france': 'paris', 'spain': 'madrid', 'germany': 'hamburg'}
 ```
 
 ## Unit tests
