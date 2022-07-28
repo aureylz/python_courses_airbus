@@ -373,6 +373,13 @@ for i in ['a', 'b', 'c']:
 cities={'TLS':'Toulouse', 'NYC': 'New York'}
 for code in cities:
     print(code, ' : ', cities[code])
+
+
+# continue keyword (also work with while loops)
+for x in range(-10, 10):
+    if x == 0:
+        continue
+    print(f'y({x}) = 1/{x} = {1/x}')
 ```
 
 #### while
