@@ -1,9 +1,11 @@
-# Module 2: Python basics (5h30)
+# Module 2: Python basics (6h)
 
 ## Getting started
 
-We will see in this modules some basics of python language.  
+We will see in this module some basics of python language.
+
 You can use python interpreter also called REPL (Read Evaluate Print Loop), to check code snippets given in the module.  
+
 Note: "ctrl + d" to quit REPL.
 
 ```bash
@@ -63,6 +65,34 @@ even = True if my_var % 2 == 0 else False
 my_word='blue'
 color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black') else None
 ```
+
+## Entry point
+
+Python uses some special variables and functions that are being assigned depending on the execution context.
+
+Those variables and functions are easy to identify, they're all wrapped within double underscores (```__```)
+
+When the interpreter runs a module, it'll set the ```__name__``` to the name of the Python file or to ```__main__`` if this file is the main program entry point.
+
+One can leverage that to run some part of the code when the file is the entry point only.
+
+The following construct allows us to run code when we directly execute this file, but not when it's being imported as a module:
+
+ ```python
+# my_module.py
+def unit_tests():
+    # here go some unit tests
+    ...
+
+def my_module_func_1()
+    # sample function that will be availabe once this module is imported
+    ...
+
+## this block will be executed if and only if one directly called the module from the command line (python 3 my_module.py)
+## but it will not run when one uses this file as a module from another python file (import my_module.py)
+if __name__ == "__main__":
+   unit_tests
+ ```
 
 ## Built-in data types
 
