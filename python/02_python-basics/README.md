@@ -1,5 +1,61 @@
 # Module 2: Python basics (6h)
 
+- [Module 2: Python basics (6h)](#module-2-python-basics-6h)
+  - [Getting started](#getting-started)
+  - [Syntax](#syntax)
+    - [Indentation](#indentation)
+    - [Comments](#comments)
+    - [Variables](#variables)
+      - [Conditional assignment](#conditional-assignment)
+  - [Entry point](#entry-point)
+  - [Built-in data types](#built-in-data-types)
+    - [```None```](#none)
+    - [String](#string)
+      - [String formating](#string-formating)
+      - [Common ```str``` operations](#common-str-operations)
+    - [Numerical](#numerical)
+      - [```int```](#int)
+      - [```float```](#float)
+      - [```complex```](#complex)
+    - [Sequences](#sequences)
+      - [```list```](#list)
+        - [```list``` comprehension](#list-comprehension)
+      - [```tuple```](#tuple)
+      - [```range```](#range)
+    - [Dictionaries](#dictionaries)
+      - [```dict``` comprehension](#dict-comprehension)
+    - [Sets](#sets)
+      - [```set```](#set)
+      - [```frozenset```](#frozenset)
+      - [```bool```](#bool)
+    - [Binary](#binary)
+      - [```bytes```](#bytes)
+      - [```bytearray```](#bytearray)
+      - [```memoryview```](#memoryview)
+  - [Operators](#operators)
+    - [Arithmetic operators](#arithmetic-operators)
+    - [Assignment operators](#assignment-operators)
+    - [Comparison operators](#comparison-operators)
+    - [Logical operators](#logical-operators)
+    - [Identity operators](#identity-operators)
+    - [Membership operators](#membership-operators)
+    - [Bitwise operators](#bitwise-operators)
+  - [Flow control](#flow-control)
+    - [Conditionals](#conditionals)
+      - [```if``` .. ```elif``` .. ```else```](#if--elif--else)
+    - [Loops](#loops)
+      - [for](#for)
+      - [while](#while)
+    - [Exceptions handling](#exceptions-handling)
+  - [Functions](#functions)
+    - [Variable named (keyword) arguments](#variable-named-keyword-arguments)
+    - [Both positional and names parameters](#both-positional-and-names-parameters)
+  - [Files I/O](#files-io)
+  - [Parsing](#parsing)
+    - [JSON](#json)
+    - [CSV](#csv)
+  - [Unit tests](#unit-tests)
+
 ## Getting started
 
 We will see in this module some basics of python language.
@@ -177,8 +233,6 @@ y = 5j
 z = -5j
 x = complex(1j)
 ```
-
-## Comprehension
 
 ### Sequences
 
