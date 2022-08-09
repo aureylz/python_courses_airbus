@@ -182,6 +182,8 @@ category = 'Single Aisle'
 msg = f"Our {model} is a {category}" 
 ```
 
+Here, in the string ```msg``` the ```model``` and ```category``` variables will be replaced by their content.
+
 Output:
 
 => Our ```A220``` is a ```Single Aisle```
@@ -487,6 +489,7 @@ for code in cities:
 # continue keyword (also work with while loops)
 for x in range(-10, 10):
     if x == 0:
+        # the continue statement will skip the current block of code and keep looping
         continue
     print(f'y({x}) = 1/{x} = {1/x}')
 ```
