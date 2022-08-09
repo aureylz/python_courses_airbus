@@ -32,37 +32,16 @@ Let's create the simplest possible class to start coding around airpcrafts, and 
 
 ```python
 # Declaration of our new class
-class Aircraft:
+class SimpleAircraft:
     """This new type will be used to model any sort of airplanes"""
 ```
 
-Now, let's use this new class by creating a new my_plane variable of type Aircraft:
+Now, let's use this new class by creating 3 new variables / instances of our new SimpleAircraft type:
 
 ```python
-# Instanciation of our new class
-my_plane = Aircraft()
-```
-
-Let's create 3 planes and assign them some specific properties:
-
-```python
-# My first plane
-my_a320 = Aircraft()
-my_a320.model_name = 'A320'
-my_a320.is_military = False
-my_a320.is_cargo = False
-
-# I need a second plane in my program
-another_plane = Aircraft()
-another_plane.model_name = 'A400M'
-another_plane.is_military = True
-another_plane.is_cargo = False
-
-# and a last one
-my_cargo = Aircraft()
-my_cargo.model_name = 'C295'
-my_cargo.is_military = True
-my_cargo.is_cargo = True
+a320 = SimpleAircraft()
+a400m = SimpleAircraft()
+c295 = SimpleAircraft()
 ```
 
 ### Constructors
@@ -102,9 +81,20 @@ my_cargo = SimpleAircraft('C295', is_military=True, is_cargo=True)
 a350 = SimpleAircraft('A350F', is_cargo=True)
 ```
 
-### Class methods
+### Functions in a class
 
 classes can (and most probably should...) also contain methods (functions) that can change the state of your internal variables.
+
+There are three distinct types of functions tied to ```class```:
+
+- class methods (using ```@classmethod``` decorator and ```cls``` as the first parameter)
+  - has access to class variables
+  - has no access to instance variables
+- static methods (using ```@staticmethod``` decorator)
+  - has no access to neither class nor instance variables
+  - usually an helper method that only relies on the passed in parameters
+- instance methods (using ```self``` as the first parameter)
+  - has access to both class and instance variables 
 
 In the below example, we'll append a ```convert()``` method that'll change the cabin layout of our ```SimpleAircraft```.
 
@@ -271,7 +261,7 @@ plane4.all_family ['A319', 'A320', 'A321']
 
 Classes can be inherited / derived (specialized) so that child classes benefit from parent's properties and methods.
 
-Derived classes may override (specialize) methods of their base classes (all methods in Python are ```virtual``` in C++ terms)
+Derived classes may override (specialize) methods of their base classes
 
 Python has two built-in functions that work with inheritance:
 

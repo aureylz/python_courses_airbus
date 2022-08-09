@@ -1,9 +1,67 @@
-# Module 2: Python basics (5h30)
+# Module 2: Python basics (6h)
+
+- [Module 2: Python basics (6h)](#module-2-python-basics-6h)
+  - [Getting started](#getting-started)
+  - [Syntax](#syntax)
+    - [Indentation](#indentation)
+    - [Comments](#comments)
+    - [Variables](#variables)
+      - [Conditional assignment](#conditional-assignment)
+  - [Entry point](#entry-point)
+  - [Built-in data types](#built-in-data-types)
+    - [```None```](#none)
+    - [String](#string)
+      - [String formating](#string-formating)
+      - [Common ```str``` operations](#common-str-operations)
+    - [Numerical](#numerical)
+      - [```int```](#int)
+      - [```float```](#float)
+      - [```complex```](#complex)
+    - [Sequences](#sequences)
+      - [```list```](#list)
+        - [```list``` comprehension](#list-comprehension)
+      - [```tuple```](#tuple)
+      - [```range```](#range)
+    - [Dictionaries](#dictionaries)
+      - [```dict``` comprehension](#dict-comprehension)
+    - [Sets](#sets)
+      - [```set```](#set)
+      - [```frozenset```](#frozenset)
+      - [```bool```](#bool)
+    - [Binary](#binary)
+      - [```bytes```](#bytes)
+      - [```bytearray```](#bytearray)
+      - [```memoryview```](#memoryview)
+  - [Operators](#operators)
+    - [Arithmetic operators](#arithmetic-operators)
+    - [Assignment operators](#assignment-operators)
+    - [Comparison operators](#comparison-operators)
+    - [Logical operators](#logical-operators)
+    - [Identity operators](#identity-operators)
+    - [Membership operators](#membership-operators)
+    - [Bitwise operators](#bitwise-operators)
+  - [Flow control](#flow-control)
+    - [Conditionals](#conditionals)
+      - [```if``` .. ```elif``` .. ```else```](#if--elif--else)
+    - [Loops](#loops)
+      - [for](#for)
+      - [while](#while)
+    - [Exceptions handling](#exceptions-handling)
+  - [Functions](#functions)
+    - [Variable named (keyword) arguments](#variable-named-keyword-arguments)
+    - [Both positional and names parameters](#both-positional-and-names-parameters)
+  - [Files I/O](#files-io)
+  - [Parsing](#parsing)
+    - [JSON](#json)
+    - [CSV](#csv)
+  - [Unit tests](#unit-tests)
 
 ## Getting started
 
-We will see in this modules some basics of python language.  
+We will see in this module some basics of python language.
+
 You can use python interpreter also called REPL (Read Evaluate Print Loop), to check code snippets given in the module.  
+
 Note: "ctrl + d" to quit REPL.
 
 ```bash
@@ -64,9 +122,37 @@ my_word='blue'
 color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black') else None
 ```
 
+## Entry point
+
+Python uses some special variables and functions that are being assigned depending on the execution context.
+
+Those variables and functions are easy to identify, they're all wrapped within double underscores (```__```)
+
+When the interpreter runs a module, it'll set the ```__name__``` to the name of the Python file or to ```__main__`` if this file is the main program entry point.
+
+One can leverage that to run some part of the code when the file is the entry point only.
+
+The following construct allows us to run code when we directly execute this file, but not when it's being imported as a module:
+
+ ```python
+# my_module.py
+def unit_tests():
+    # here go some unit tests
+    ...
+
+def my_module_func_1()
+    # sample function that will be availabe once this module is imported
+    ...
+
+## this block will be executed if and only if one directly called the module from the command line (python 3 my_module.py)
+## but it will not run when one uses this file as a module from another python file (import my_module.py)
+if __name__ == "__main__":
+   unit_tests
+ ```
+
 ## Built-in data types
 
-### None
+### ```None```
 
 ```python
 x = None
@@ -74,7 +160,7 @@ x = None
 
 ### String
 
-No char type in python
+No ```char``` type in python, only ```str```, but individual characters can be accessed with the ```[]```operator.
 
 ```python
 "I'm a string"
@@ -86,9 +172,44 @@ len('azerty')    # == 6
 'azerty'[0]      # == 'a'
 ```
 
+#### String formating
+
+Python 3.7 introduced the concept of f-string which is a nicer syntax compared to the former ```.format() ``` approach:
+
+```python
+model = 'A220'
+category = 'Single Aisle'
+msg = f"Our {model} is a {category}" 
+```
+
+Here, in the string ```msg``` the ```model``` and ```category``` variables will be replaced by their content.
+
+Output:
+
+=> Our ```A220``` is a ```Single Aisle```
+
+#### Common ```str``` operations
+
+Extract from the official [docs.python.org](https://docs.python.org/3.7/library/stdtypes.html#string-methods):
+
+- [str.encode(encoding="utf-8", errors="strict")](https://docs.python.org/3.7/library/stdtypes.html#str.encode): Return an encoded version of the string as a bytes object
+
+- [str.endswith(suffix[, start[, end]])](https://docs.python.org/3.7/library/stdtypes.html#str.endswith): Return True if the string ends with the specified suffix, otherwise return False
+
+- [str.find(sub[, start[, end]])](https://docs.python.org/3.7/library/stdtypes.html#str.find): Return the lowest index in the string where substring sub is found within the slice s[start:end]. The find() method should be used only if you need to know the position of sub. Otherwise, use the ```in``` operator:
+  > ```if 'Py' in 'Python'```
+
+- [str.index(sub[, start[, end]])](https://docs.python.org/3.7/library/stdtypes.html#str.index): Like find(), but raise ValueError when the substring is not found
+
+- [str.join(iterable)](https://docs.python.org/3.7/library/stdtypes.html#str.join): Return a string which is the concatenation of the strings in iterable. The separator between elements is the string providing this method.
+
+- [str.replace(old, new[, count])](https://docs.python.org/3.7/library/stdtypes.html#str.replace): Return a copy of the string with all occurrences of substring old replaced by new.
+
+- [str.startswith(prefix[, start[, end]])](https://docs.python.org/3.7/library/stdtypes.html#str.startswith): Return True if string starts with the prefix, otherwise return False.
+
 ### Numerical
 
-#### int
+#### ```int```
 
 ```python
 x = 1
@@ -97,7 +218,7 @@ z = -2
 x = int(320)
 ```
 
-#### float
+#### ```float```
 
 ```python
 x = 35e3
@@ -106,7 +227,7 @@ z = -87.7e100
 pi = float(3.1415926)
 ```
 
-#### complex
+#### ```complex```
 
 ```python
 x = 3+5j
@@ -117,7 +238,7 @@ x = complex(1j)
 
 ### Sequences
 
-#### list
+#### ```list```
 
 Collection of ordered and indexed items.  
 
@@ -125,7 +246,16 @@ Collection of ordered and indexed items.
 aircrafts = list(("A320", "A330", "A350")) # ['A320', 'A330', 'A350']
 ```
 
-#### tuple
+##### ```list``` comprehension
+
+Concise syntax to build lists (equivalent to a ```for``` loop).  
+
+```python
+words = ["tree", "flower", "bee"]
+numbers = [len(word) for word in words] # [4, 6, 3]
+```
+
+#### ```tuple```
 
 Immutable sequences of ordered and indexed items.  
 
@@ -133,7 +263,7 @@ Immutable sequences of ordered and indexed items.
 helicopters = tuple(("H160", "H175")) # ('H160', 'H175')
 ```
 
-#### range
+#### ```range```
 
 Sequence representing an arithmetic progression of integers.  
 
@@ -143,7 +273,7 @@ x = range(6) # list(x) => [0, 1, 2, 3, 4, 5]
 
 ### Dictionaries
 
-Collection of ordered (since python 3.7) and unique items (key-value pairs).  
+```dict``` is collection of ordered (since python 3.7) and unique items (key-value pairs).  
 
 ```python
 aircrafts_types = dict(name='A320', age='single_aisle') # {'name': 'A320', 'age': 'single_aisle'}
@@ -152,24 +282,33 @@ aircrafts_types.values()
 aircrafts_types.items()
 ```
 
+#### ```dict``` comprehension
+
+Concise syntax to build dictionaries (equivalent to a ```for``` loop).  
+
+```python
+cities = {'paris':'france', 'madrid':'spain', 'hamburg':'germany'}
+countries = {c:city for city,c in cities.items()}    # {'france': 'paris', 'spain': 'madrid', 'germany': 'hamburg'}
+```
+
 ### Sets
 
 Unordered collection of unique (and unindexed) elements.  
 
-#### set
+#### ```set```
 
 ```python
 single_aisle = set(("A319", "A320", "A321")) # {'A321', 'A320', 'A319'}
 wide_bodies = set(("A330", "A350", "A380")) # {'A380', 'A330', 'A350'}
 ```
 
-#### frozenset
+#### ```frozenset```
 
 ```python
 oldies = frozenset(("concorde", "caravel", "a300"))
 ```
 
-#### bool
+#### ```bool```
 
 Almost any value is evaluated to True if it has some sort of content.
 
@@ -191,19 +330,19 @@ bool({})
 
 ### Binary
 
-#### bytes
+#### ```bytes```
 
 ```python
 x = bytes(5)
 ```
 
-#### bytearray
+#### ```bytearray```
 
 ```python
 x = bytearray(5)
 ```
 
-#### memoryview
+#### ```memoryview```
 
 ```python
 x = memoryview(bytes(5))
@@ -294,7 +433,13 @@ liste, dictionnaire, tuple,
 
 ### Conditionals
 
-#### if .. elif .. else
+Conditions can be used to execute a block of code if and only if some criterias are met.
+
+Conditions can be nested (indented).
+
+There is no ```select...case``` construct in Python, just use ```if``` .. ```elif```
+
+#### ```if``` .. ```elif``` .. ```else```
 
 ```python
 catalog_item = 'A220'
@@ -339,6 +484,14 @@ for i in ['a', 'b', 'c']:
 cities={'TLS':'Toulouse', 'NYC': 'New York'}
 for code in cities:
     print(code, ' : ', cities[code])
+
+
+# continue keyword (also work with while loops)
+for x in range(-10, 10):
+    if x == 0:
+        # the continue statement will skip the current block of code and keep looping
+        continue
+    print(f'y({x}) = 1/{x} = {1/x}')
 ```
 
 #### while
@@ -373,7 +526,7 @@ square(3)
 
 ### Variable named (keyword) arguments
 
-> Use the double asterisk ```**```` before kwargs as the unpacking operator
+> Use the double asterisk ```**``` before kwargs as the unpacking operator
 
 ```python
 def my_catalog(p1: str, p2: int, **kwargs):
@@ -433,6 +586,7 @@ json_dict['MRS']
 ```
 
 Convert python dict to json string.  
+
 ```python
 import json
 json_dict = {
@@ -484,24 +638,6 @@ with open('cities.csv', encoding="utf8") as f:
     next(reader)    # return next line as a dict
     for line in reader:
         print(f"code {line['code']} for city {line['city']}")
-```
-
-## Comprehension
-
-Concise syntax to build lists, sets, and dictionaries.  
-
-### list
-
-```python
-words = ["tree", "flower", "bee"]
-numbers = [len(word) for word in words] # [4, 6, 3]
-```
-
-### dict
-
-```python
-cities = {'paris':'france', 'madrid':'spain', 'hamburg':'germany'}
-countries = {c:city for city,c in cities.items()}    # {'france': 'paris', 'spain': 'madrid', 'germany': 'hamburg'}
 ```
 
 ## Unit tests
