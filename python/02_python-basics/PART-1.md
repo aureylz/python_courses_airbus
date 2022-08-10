@@ -7,6 +7,7 @@
     - [Comments](#comments)
     - [Variables](#variables)
       - [Conditional assignment](#conditional-assignment)
+  - [Naming conventions](#naming-conventions)
   - [Entry point](#entry-point)
   - [Built-in data types](#built-in-data-types)
     - [```None```](#none)
@@ -32,7 +33,7 @@
       - [```bytes```](#bytes)
       - [```bytearray```](#bytearray)
       - [```memoryview```](#memoryview)
-  - [built-in functions](#built-in-functions)
+  - [Built-in functions](#built-in-functions)
   - [Operators](#operators)
     - [Arithmetic operators](#arithmetic-operators)
     - [Assignment operators](#assignment-operators)
@@ -107,6 +108,24 @@ even = True if my_var % 2 == 0 else False
 my_word='blue'
 color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black') else None
 ```
+
+## Naming conventions
+
+> Copied from [namingconvention.org](https://namingconvention.org/python/)
+
+| Type | Public | Internal |
+|---|---|---|
+| Packages | ```lower_with_under``` | |
+| Modules | ```lower_with_under``` | ```_lower_with_under``` |
+| Classes | ```CapWords``` | ```_CapWords``` |
+| Exceptions | ```CapWords``` | |
+| Functions | ```lower_with_under()``` | ```_lower_with_under()``` |
+| Global/Class Constants | ```CAPS_WITH_UNDER``` | ```_CAPS_WITH_UNDER``` |
+| Global/Class Variables | ```lower_with_under``` |```_lower_with_under``` |
+| Instance Variables | ```lower_with_under``` | ```_lower_with_under``` |
+| Method Names | ```lower_with_under()``` | ```_lower_with_under()``` |
+| Function/Method Parameters | ```lower_with_under``` |
+| Local Variables | ```lower_with_under``` | |
 
 ## Entry point
 
@@ -334,7 +353,7 @@ x = bytearray(5)
 x = memoryview(bytes(5))
 ```
 
-## built-in functions
+## Built-in functions
 
 [Official documentation](https://docs.python.org/3/library/functions.html)
 
