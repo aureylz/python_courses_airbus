@@ -7,6 +7,9 @@
     - [Comments](#comments)
     - [Variables](#variables)
       - [Conditional assignment](#conditional-assignment)
+    - [Naming conventions](#naming-conventions)
+  - [Type hints](#type-hints)
+    - [Examples](#examples)
   - [Entry point](#entry-point)
   - [Built-in data types](#built-in-data-types)
     - [```None```](#none)
@@ -32,6 +35,7 @@
       - [```bytes```](#bytes)
       - [```bytearray```](#bytearray)
       - [```memoryview```](#memoryview)
+  - [Built-in functions](#built-in-functions)
   - [Operators](#operators)
     - [Arithmetic operators](#arithmetic-operators)
     - [Assignment operators](#assignment-operators)
@@ -106,6 +110,56 @@ even = True if my_var % 2 == 0 else False
 my_word='blue'
 color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black') else None
 ```
+
+### Naming conventions
+
+> Copied from [namingconvention.org](https://namingconvention.org/python/)
+
+| Type | Public | Internal |
+|---|---|---|
+| Packages | ```lower_with_under``` | |
+| Modules | ```lower_with_under``` | ```_lower_with_under``` |
+| Classes | ```CapWords``` | ```_CapWords``` |
+| Exceptions | ```CapWords``` | |
+| Functions | ```lower_with_under()``` | ```_lower_with_under()``` |
+| Global/Class Constants | ```CAPS_WITH_UNDER``` | ```_CAPS_WITH_UNDER``` |
+| Global/Class Variables | ```lower_with_under``` |```_lower_with_under``` |
+| Instance Variables | ```lower_with_under``` | ```_lower_with_under``` |
+| Method Names | ```lower_with_under()``` | ```_lower_with_under()``` |
+| Function/Method Parameters | ```lower_with_under``` |
+| Local Variables | ```lower_with_under``` | |
+
+## Type hints
+
+See also [official doc](https://docs.python.org/3/library/typing.html) and [PEP 483](https://peps.python.org/pep-0483/).
+
+Type hints are optional annotations that one can add to the source code in order to be more explicit.
+
+The intent is to help the programmer / readers of the code to better understand the expected and returned data-types in functions and variables.
+
+> The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc.
+> Python ```linters``` are typically leveraging the ```type hints``` to issue warnings and point-out potential pitfalls in your code.
+
+### Examples
+
+Let's define a function without typings:
+
+```python
+def append_pi(lst):
+    lst += [3.14]
+```
+
+The same function, but with typing annotations:
+
+```python
+def append_pi(lst: List[float]) -> None:
+    lst += [3.14]
+```
+
+In the second version, at first read, one can clearly says:
+
+- this functions expects a list of floats
+- this function returns nothing, but has a side effect on the passed-in parameter
 
 ## Entry point
 
@@ -333,11 +387,18 @@ x = bytearray(5)
 x = memoryview(bytes(5))
 ```
 
+## Built-in functions
+
+[Official documentation](https://docs.python.org/3/library/functions.html)
+
+- [enumerate(iterable, start=0)](https://docs.python.org/3/library/functions.html#enumerate): returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.
+- [input([prompt])](https://docs.python.org/3/library/functions.html#input): If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input
+- [len(s)](https://docs.python.org/3/library/functions.html#len): Return the length (the number of items) of an object. The argument may be a sequence (such as a string, bytes, tuple, list, or range) or a collection (such as a dictionary, set, or frozen set)
+- [open(file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)](https://docs.python.org/3/library/functions.html#open): Open file and return a corresponding file object
+- [print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)](https://docs.python.org/3/library/functions.html#print): Print objects to the text stream file, separated by sep and followed by end. sep, end, file, and flush, if present, must be given as keyword arguments.
+- [zip(*iterables, strict=False)](https://docs.python.org/3/library/functions.html#zip): Iterate over several iterables in parallel, producing tuples with an item from each one.
+
 ## Operators
-
-> penser crypto avec div euclidienne, puissance, etc...
-
-liste, dictionnaire, tuple,
 
 ### Arithmetic operators
 

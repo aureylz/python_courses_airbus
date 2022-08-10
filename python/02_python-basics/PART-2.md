@@ -18,7 +18,20 @@
 
 Conditions can be used to execute a block of code if and only if some criterias are met.
 
-Conditions can be nested (indented).
+Criterias are evaluated at run-time and based on your code's variables content.
+
+Uncomment the first line, run the sample.
+Then uncomment the second line only, and run the sample again.
+
+```python
+# my_var: float = 3.15
+# my_var: float = 3.1415926
+
+if my_var == 3.1415926:
+    print('I recognized Pi')
+```
+
+Conditions also can be nested (indented).
 
 There is no ```select...case``` construct in Python, just use ```if``` .. ```elif```
 
@@ -53,6 +66,12 @@ else:
 ```
 
 ### Loops
+
+Loops are used to repeat a block of code a certain amount of times.
+
+The amount of iterations can be the number of items in a list or based on some criterias.
+
+The ```continue``` keyword can be used to skip a specific iteration and is usually used within an ```ìf...``` construct.
 
 #### for
 
