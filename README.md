@@ -1,12 +1,18 @@
-# Cyber Diploma Courses
+# Cyber Diploma Courses :: Python
 
-## Modules
+## Conventions
 
-### [Python](python/)
+In the Python courses, we'll be using the following icons for specific purposes:
 
-### [Cryptography](#)
+✍️ : writter: Hands-on (Labs)
 
-### [Network](#)
+💪 : muscle/strong: Advanced Labs / Concepts (Bonus)
+
+## Content
+
+- [Python Introduction (Google Slides)](https://docs.google.com/presentation/d/1Cth-RjR7KV48ojV2SYNl9iJxMXkc7-5hu8CEAlRjW9Q/edit#slide=id.g13bb2371799_1_0)
+
+- [Python Courses (Markdown)](python/)
 
 ## Publication process
 
