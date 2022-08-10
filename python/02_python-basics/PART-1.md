@@ -32,6 +32,7 @@
       - [```bytes```](#bytes)
       - [```bytearray```](#bytearray)
       - [```memoryview```](#memoryview)
+  - [built-in functions](#built-in-functions)
   - [Operators](#operators)
     - [Arithmetic operators](#arithmetic-operators)
     - [Assignment operators](#assignment-operators)
@@ -333,11 +334,18 @@ x = bytearray(5)
 x = memoryview(bytes(5))
 ```
 
+## built-in functions
+
+[Official documentation](https://docs.python.org/3/library/functions.html)
+
+- [enumerate(iterable, start=0)](https://docs.python.org/3/library/functions.html#enumerate): returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.
+- [input([prompt])](https://docs.python.org/3/library/functions.html#input): If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input
+- [len(s)](https://docs.python.org/3/library/functions.html#len): Return the length (the number of items) of an object. The argument may be a sequence (such as a string, bytes, tuple, list, or range) or a collection (such as a dictionary, set, or frozen set)
+- [open(file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)](https://docs.python.org/3/library/functions.html#open): Open file and return a corresponding file object
+- [print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)](https://docs.python.org/3/library/functions.html#print): Print objects to the text stream file, separated by sep and followed by end. sep, end, file, and flush, if present, must be given as keyword arguments.
+- [zip(*iterables, strict=False)](https://docs.python.org/3/library/functions.html#zip): Iterate over several iterables in parallel, producing tuples with an item from each one.
+
 ## Operators
-
-> penser crypto avec div euclidienne, puissance, etc...
-
-liste, dictionnaire, tuple,
 
 ### Arithmetic operators
 
