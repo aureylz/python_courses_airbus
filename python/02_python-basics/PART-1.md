@@ -7,7 +7,9 @@
     - [Comments](#comments)
     - [Variables](#variables)
       - [Conditional assignment](#conditional-assignment)
-  - [Naming conventions](#naming-conventions)
+    - [Naming conventions](#naming-conventions)
+  - [Type hints](#type-hints)
+    - [Examples](#examples)
   - [Entry point](#entry-point)
   - [Built-in data types](#built-in-data-types)
     - [```None```](#none)
@@ -109,7 +111,7 @@ my_word='blue'
 color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black') else None
 ```
 
-## Naming conventions
+### Naming conventions
 
 > Copied from [namingconvention.org](https://namingconvention.org/python/)
 
@@ -126,6 +128,38 @@ color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black
 | Method Names | ```lower_with_under()``` | ```_lower_with_under()``` |
 | Function/Method Parameters | ```lower_with_under``` |
 | Local Variables | ```lower_with_under``` | |
+
+## Type hints
+
+See also [official doc](https://docs.python.org/3/library/typing.html) and [PEP 483](https://peps.python.org/pep-0483/).
+
+Type hints are optional annotations that one can add to the source code in order to be more explicit.
+
+The intent is to help the programmer / readers of the code to better understand the expected and returned data-types in functions and variables.
+
+> The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc.
+> Python ```linters``` are typically leveraging the ```type hints``` to issue warnings and point-out potential pitfalls in your code.
+
+### Examples
+
+Let's define a function without typings:
+
+```python
+def append_pi(lst):
+    lst += [3.14]
+```
+
+The same function, but with typing annotations:
+
+```python
+def append_pi(lst: List[float]) -> None:
+    lst += [3.14]
+```
+
+In the second version, at first read, one can clearly says:
+
+- this functions expects a list of floats
+- this function returns nothing, but has a side effect on the passed-in parameter
 
 ## Entry point
 
