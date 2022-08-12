@@ -35,7 +35,7 @@ def mutation(dna: list, mutation_rate: float):
             dna[i] = 1 - dna[i]
 
 
-def selection(pop: list, scores, k=3):
+def selection(pop: list, scores: list, k: int = 3):
     """
     the selection operator selects one citizen who will become a parent to breed next generation
     :param pop: the population as a list of citizen (each citizen is in turn modeled by its dna as a list of bits)
