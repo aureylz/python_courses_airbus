@@ -9,7 +9,7 @@ def main():
     # print(one_max_result)
     # print(ScrabbleDictionary().get_instance().valid_words_with_letters(['A', 'V', 'E', 'C', 'X', 'Y', 'Z']))
     # scrabble_challenge = ScrabbleChallenge()
-    scrabble_challenge = ScrabbleChallenge(initial_rack='MARMITE')
+    scrabble_challenge = ScrabbleChallenge(initial_rack='ABEILLE')
     scrabble_result = scrabble_challenge.solve_challenge()
     print('Scrabble challenge done!')
     print(scrabble_result)
