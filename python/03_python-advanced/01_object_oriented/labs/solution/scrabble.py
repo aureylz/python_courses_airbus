@@ -107,6 +107,7 @@ class RackOfLetters(GACitizenBase):
         has_muted = False
         for i in range(len(self._dna)):
             if random() < mutation_rate:
+                has_muted = True
                 swap_with_idx = randint(0, len(self._dna) - 1)
                 if swap_with_idx != i:
                     if isinstance(self._dna[i], int):
@@ -121,7 +122,7 @@ class RackOfLetters(GACitizenBase):
                         print(f'\t\tmuting {before}: space at position {i} returned to letter {buffer}')
                     else:
                         self._dna[i] = self._dna[swap_with_idx]
-                        print(f'\t\tmuting {before}: swapping letters {self._dna[swap_with_idx]} at position {swap_with_idx} and {self._dna[i]} at position {i}')
+                        print(f'\t\tmuting {before}: swapping letters {self._dna[swap_with_idx]} at position {swap_with_idx} and {buffer} at position {i}')
                     self._dna[swap_with_idx] = buffer
 
                 else:
@@ -131,7 +132,6 @@ class RackOfLetters(GACitizenBase):
                     else:
                         self._dna[i] = chr(-self._dna[i])
                         print(f'\t\tmuting {before}: space at position {i} returned to letter {self._dna[i]}')
-                has_muted = True
         if has_muted:
             print(f'\t\t{before} has muted into {self}')
 
@@ -142,32 +142,19 @@ class RackOfLetters(GACitizenBase):
         child_2 = RackOfLetters(genome=other_parent._dna.copy())
         if random() < crossover_rate and len(self._dna) > 2:
             pt = randint(1, len(self._dna) - 2)
-
-            parent_1_counter = Counter(other_parent._dna)
             child_1_start_dna = self._dna[:pt]
-            child_1_start_dna_counter = Counter(child_1_start_dna)
-            parent_1_counter.subtract(child_1_start_dna_counter)
-            # pt_2 = randint(0, 1)
-            # child_1_end_dna = list(parent_1_counter.elements())[:pt_2]
-            child_1_end_dna = list(parent_1_counter.elements())
-            # shuffle(child_1_end_dna)
+            child_1_end_dna = self._dna[pt:]
+            shuffle(child_1_end_dna)
             child_1_dna = child_1_start_dna + child_1_end_dna
             child_1 = RackOfLetters(genome=child_1_dna, is_exact_copy=True)
-
-            parent_2_counter = Counter(self._dna)
             child_2_start_dna = other_parent._dna[:pt]
-            child_2_start_dna_counter = Counter(child_2_start_dna)
-            parent_2_counter.subtract(child_2_start_dna_counter)
-            # pt_2 = randint(0, 1)
-            # child_2_end_dna = list(parent_2_counter.elements())[:pt_2]
-            child_2_end_dna = list(parent_2_counter.elements())
-            # shuffle(child_2_end_dna)
+            child_2_end_dna = other_parent._dna[pt:]
+            shuffle(child_2_end_dna)
             child_2_dna = child_2_start_dna + child_2_end_dna
             child_2 = RackOfLetters(genome=child_2_dna, is_exact_copy=True)
-
-            # print(f'\tbreed({self} x {other_parent}, cross_over_position={pt} => ({child_1}, {child_2})')
-        # else:
-            # print(f'\tbreed({self} x {other_parent}, no_cross_over => ({child_1}, {child_2})')
+            print(f'\tbreed({self} x {other_parent}, cross_over_position={pt} => ({child_1}, {child_2})')
+        else:
+            print(f'\tbreed({self} x {other_parent}, no_cross_over => ({child_1}, {child_2})')
         return child_1, child_2
 
     @property
@@ -196,14 +183,14 @@ class RackOfLetters(GACitizenBase):
 
 
 class ScrabbleChallenge(GAChallengeBase):
-    def __init__(self, initial_rack: str = None, population_count: int = 1000):
+    def __init__(self, initial_rack: str = None, population_count: int = 500):
         genome_size = 7
         super().__init__(population_count=population_count,
                          genome_size=genome_size,
                          fitness_threshold=genome_size,
-                         max_generations=25,
-                         crossover_rate=0.9,
-                         mutation_rate=0.05)
+                         max_generations=50,
+                         crossover_rate=0.5,
+                         mutation_rate=0.1)
         if not initial_rack:
             initial_rack = []
             for i in range(genome_size):
