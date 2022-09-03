@@ -1,10 +1,19 @@
 # Python Module
 
 - Leader: Olivier ETIENNE
-- Volume: 22h 
+- Volume: 22h
 - 100% on site
 - Course: 40%
 - Labs/HandOn: 60%
+
+
+## Sub-modules
+
+- [Environment discovery](01_env-discovery/)
+- [Python basics](02_python-basics/)
+- [Python advanced](03_python-advanced/)
+- [Essential libraries](04_essential-libs/)
+- [Cybersec Tools](05_cybersec-tools/)
 
 ## People
 
@@ -20,11 +29,3 @@
 | Micael CIVRAY | :white_check_mark: | :white_check_mark: |
 | Sébastien ARFORT | :white_check_mark: | :white_check_mark: |
 | Vivek KUMAR | | :white_check_mark: |
-
-## Sub-modules
-
-- [Environment discovery](01_env-discovery/)
-- [Python basics](02_python-basics/)
-- [Python advanced](03_python-advanced/)
-- [Essential libraries](04_essential-libs/)
-- [Cybersec Tools](05_cybersec-tools/)
