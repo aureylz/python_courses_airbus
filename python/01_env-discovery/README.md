@@ -3,17 +3,14 @@
 ## Learning Objectives
 
 - Know the history and ecosystem of Python
+
 - Commenting around python coding environment (tooling)
+
 - Implementing and installating a Coding Environment (IDE Setup)
+
 - Executing a basic python script (Hello World)
 
-
-
-## Python History
-
-LINK TO SLIDES -> Alan
-
-
+  
 
 ## Python Tooling Ecosystem
 
@@ -84,16 +81,11 @@ Reasons for this are:
 
 **Airbus CyberDiploma will use [pytest](https://pytest.org) as test framework.**
 
-### Environments
-
-[A Complete Guide to Python Virtual Environments](VENV.MD)
+### Virtual Environments
 
 **Airbus CyberDiploma will use  [virtualenv](https://pythonbasics.org/virtualenv/) for virtual environment** 
 
-The interested reader can check the following links to better understand which a standard should be done in a team: 
-
-* https://dev.to/bowmanjd/python-tools-for-managing-virtual-environments-3bko
-* https://aseifert.com/p/python-environments/
+[Virtual Environment](VENV.md))
 
 ### Refactoring
 
@@ -275,42 +267,6 @@ Tip: Keep up to date with:
 ```
 python -m pip install --upgrade pip
 ```
-
-
-
-## Virtual Env
-
-https://code.visualstudio.com/docs/python/environments
-
-To simplify the creation of virtualenv, we are going to create some alias in the powershell profile. Open it with `code $profile` on the powershell terminal. Add the following lines and save.
-
-```
-function cvenv {
-& python '-m' 'venv' '.venv'
-& '.\.venv\Scripts\Activate.ps1'
-& pip 'install' '--upgrade' 'pip' 'setuptools'
-}
-
-function avenv {
-& '.\.venv\Scripts\Activate.ps1'
-}
-
-function dvenv {
-& deactivate
-}
-```
-
-Now you can use the command `cvenv` to create a new venv, `dvenv` to deactivate it and `avenv` to activate it.
-
-You can notice if you are in a virtual env by the beginning of the line which should show a green (.venv).
-
-VSCode should recognize by itself the creation of the virtual env and propose to switch your project to it.
-
-You can also find all venv discovered under the tab:
-
-<img src="README.assets/image-20220715211832747.png" alt="image-20220715211832747" style="zoom:50%;" />
-
-You can either delete it, open a terminal under it or activate it in the current workplace.
 
 
 
