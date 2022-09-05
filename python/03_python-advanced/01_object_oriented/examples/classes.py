@@ -189,6 +189,6 @@ def main3():
     print(f'Total delivered liters: {my_turbo_prop.refuel()}')
 
 if __name__ == "__main__":
-    # main1()
+    main1()
     # main2()
     # main3()
