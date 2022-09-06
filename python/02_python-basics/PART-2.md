@@ -105,6 +105,7 @@ cities={'TLS':'Toulouse', 'NYC': 'New York'}
 for code in cities:
     print(code, ' : ', cities[code])
 
+---
 
 # continue keyword (also work with while loops)
 for x in range(-10, 10):
