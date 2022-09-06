@@ -8,9 +8,6 @@
     - [Variables](#variables)
       - [Conditional assignment](#conditional-assignment)
     - [namingconvention.org](#namingconventionorg)
-  - [Type hints](#type-hints)
-    - [Examples](#examples)
-  - [Entry point](#entry-point)
   - [Built-in data types](#built-in-data-types)
     - [```None```](#none)
     - [String](#string)
@@ -129,98 +126,22 @@ color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black
 
 ### [namingconvention.org](https://namingconvention.org/python/)
 
-| Type | Public | Internal |
-|---|---|---|
-| Packages | ```low_w_under``` | |
-| Modules | ```low_w_under``` | ```_low_w_under``` |
-| Classes | ```CapWords``` | ```_CapWords``` |
-| Exceptions | ```CapWords``` | |
-| Functions | ```low_w_under()``` | ```_low_w_under()``` |
+| Type       | Public              | Internal             |
+| ---------- | ------------------- | -------------------- |
+| Packages   | ```low_w_under```   |                      |
+| Modules    | ```low_w_under```   | ```_low_w_under```   |
+| Classes    | ```CapWords```      | ```_CapWords```      |
+| Exceptions | ```CapWords```      |                      |
+| Functions  | ```low_w_under()``` | ```_low_w_under()``` |
 
 ---
 
-| Type | Public | Internal |
-|---|---|---|
-| Const | ```CAPS_WI_UNDER``` | ```_CAPS_W_UNDER``` |
-| Var | ```low_w_under``` |```low_w_under``` |
+| Type         | Public              | Internal            |
+| ------------ | ------------------- | ------------------- |
+| Const        | ```CAPS_WI_UNDER``` | ```_CAPS_W_UNDER``` |
+| Var          | ```low_w_under```   | ```low_w_under```   |
 | Method Names | ```low_w_under()``` | ```low_w_under()``` |
-| FParameters | ```low_w_under``` |
-
----
-
-## Type hints
-
-See also [official doc](https://docs.python.org/3/library/typing.html) and [PEP 483](https://peps.python.org/pep-0483/).
-
-Type hints are optional annotations that one can add to the source code in order to be more explicit.
-
-The intent is to help the programmer / readers of the code to better understand the expected and returned data-types in functions and variables.
-
----
-
-> The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc.
-> Python ```linters``` are typically leveraging the ```type hints``` to issue warnings and point-out potential pitfalls in your code.
-
----
-
-### Examples
-
-Let's define a function without typings:
-
-```python
-def append_pi(lst):
-    lst += [3.14]
-```
-
----
-
-The same function, but with typing annotations:
-
-```python
-def append_pi(lst: List[float]) -> None:
-    lst += [3.14]
-```
-
----
-
-In the second version, at first read, one can clearly says:
-
-- this functions expects a list of floats
-- this function returns nothing, but has a side effect on the passed-in parameter
-
----
-
-## Entry point
-
-Python uses some special variables and functions that are being assigned depending on the execution context.
-
-Those variables and functions are easy to identify, they're all wrapped within double underscores (```__```)
-
----
-
-When the interpreter runs a module, it'll set the ```__name__``` to the name of the Python file or to ```__main__``` if this file is the main program entry point.
-
-One can leverage that to run some part of the code when the file is the entry point only.
-
----
-
-The following construct allows us to run code when we directly execute this file, but not when it's being imported as a module:
-
- ```python
-# my_module.py
-def unit_tests():
-    # here go some unit tests
-    ...
-
-def my_module_func_1()
-    # sample function that will be availabe once this module is imported
-    ...
-
-## this block will be executed if and only if one directly called the module from the command line (python 3 my_module.py)
-## but it will not run when one uses this file as a module from another python file (import my_module.py)
-if __name__ == "__main__":
-   unit_tests
- ```
+| FParameters  | ```low_w_under```   |                     |
 
 ---
 
@@ -516,11 +437,20 @@ x = memoryview(bytes(5))
 
 returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.
 
+```python
+for idx, value in enumerate(['A', 'B', 'C']):
+    print(idx, value)
+```
+
 ---
 
 [input([prompt])](https://docs.python.org/3/library/functions.html#input): 
 
 If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input
+
+```python
+name = input("What's your name: ")
+```
 
 ---
 
@@ -528,11 +458,17 @@ If the prompt argument is present, it is written to standard output without a tr
 
 Return the length (the number of items) of an object. The argument may be a sequence (such as a string, bytes, tuple, list, or range) or a collection (such as a dictionary, set, or frozen set)
 
+```python
+len([1, 2, 3])
+```
+
 ---
 
 [open(file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)](https://docs.python.org/3/library/functions.html#open): 
 
-Open file and return a corresponding file object
+Open file and return a corresponding file object.
+
+Cf PART-3 > Files I/O
 
 ---
 
@@ -540,11 +476,30 @@ Open file and return a corresponding file object
 
 Print objects to the text stream file, separated by sep and followed by end. sep, end, file, and flush, if present, must be given as keyword arguments.
 
+```python
+print("Hello ", name)
+```
+
 ---
 
 [zip(*iterables, strict=False)](https://docs.python.org/3/library/functions.html#zip):
 
 Iterate over several iterables in parallel, producing tuples with an item from each one.
+
+```python
+tuples = zip( ['A','B','C'], [1,2,3] ); print(list(tuples))
+```
+
+---
+
+[slice(start, stop[, step])](https://docs.python.org/3/library/functions.html#slice): 
+
+Return a slice object representing the set of indices specified by range(start, stop, step). Use slice to get a portion of an iterable.
+
+```python
+pair = slice(1, 10, 2)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10][pair]
+```
 
 ---
 
@@ -554,13 +509,13 @@ Iterate over several iterables in parallel, producing tuples with an item from e
 
 ### Arithmetic operators
 
-| Operator | Name | Example |
-|:-:|---|---|
-| ```+``` | Addition | ```x + y``` |
-| ```-``` | Subtraction | ```x - y``` |
-| ```*``` | Multiplication | ```x * y``` |
-| ```/``` | Division | ```x / y``` |
-| ```%``` | Modulus | ```x % y``` |
+| Operator | Name           | Example      |
+| :------: | -------------- | ------------ |
+| ```+```  | Addition       | ```x + y```  |
+| ```-```  | Subtraction    | ```x - y```  |
+| ```*```  | Multiplication | ```x * y```  |
+| ```/```  | Division       | ```x / y```  |
+| ```%```  | Modulus        | ```x % y```  |
 | ```**``` | Exponentiation | ```x ** y``` |
 | ```//``` | Floor division | ```x // y``` |
 
@@ -568,9 +523,9 @@ Iterate over several iterables in parallel, producing tuples with an item from e
 
 ### Assignment operators
 
-| Operator | Example | Same as |
-|:-:|---|---|
-| ```=``` | ```x = 5``` | ```x = 5``` |
+| Operator | Example      | Same as         |
+| :------: | ------------ | --------------- |
+| ```=```  | ```x = 5```  | ```x = 5```     |
 | ```+=``` | ```x += 3``` | ```x = x + 3``` |
 | ```-=``` | ```x -= 3``` | ```x = x - 3``` |
 | ```*=``` | ```x *= 3``` | ```x = x * 3``` |
@@ -579,72 +534,73 @@ Iterate over several iterables in parallel, producing tuples with an item from e
 
 ---
 
-| Operator | Example | Same as |
-|:-:|---|---|
-| ```//=```| ```x //= 3``` | ```x = x // 3``` |
+| Operator  | Example       | Same as          |
+| :-------: | ------------- | ---------------- |
+| ```//=``` | ```x //= 3``` | ```x = x // 3``` |
 | ```**=``` | ```x **= 3``` | ```x = x ** 3``` |
-| ```&=``` | ```x &= 3``` | ```x = x & 3``` |
+| ```&=```  | ```x &= 3```  | ```x = x & 3```  |
 | ```\|=``` | ```x \|= 3``` | ```x = x \| 3``` |
-| ```^=``` | ```x ^= 3``` | ```x = x ^ 3``` |
-| ```>>=```  | ```x >>= 3``` | ```x = x >> 3``` |
-| ```<<=```  | ```x <<= 3``` | ```x = x << 3``` |
+| ```^=```  | ```x ^= 3```  | ```x = x ^ 3```  |
+| ```>>=``` | ```x >>= 3``` | ```x = x >> 3``` |
+| ```<<=``` | ```x <<= 3``` | ```x = x << 3``` |
 
 ---
 
 ### Comparison operators
 
-| Operator | Name | Example |
-|:-:|---|---|
-| ```==``` | Equal | ```x == y``` |
-| ```!=``` | Not equal | ```x != y``` |
-| ```>``` | Greater than | ```x > y``` |
-| ```<``` | Less than | ```x < y``` |
+| Operator | Name                     | Example      |
+| :------: | ------------------------ | ------------ |
+| ```==``` | Equal                    | ```x == y``` |
+| ```!=``` | Not equal                | ```x != y``` |
+| ```>```  | Greater than             | ```x > y```  |
+| ```<```  | Less than                | ```x < y```  |
 | ```>=``` | Greater than or equal to | ```x >= y``` |
-| ```<=``` | Less than or equal to | ```x <= y``` |
+| ```<=``` | Less than or equal to    | ```x <= y``` |
 
 ---
 
 ### Logical operators
 
-| Operator | Name | Example |
-|:-:|---|---|
-| ```and``` | Returns True if both statements are true | ```x < 5 and  x < 10``` |
-| ```or``` | Returns True if one of the statements is true | ```x < 5 or x < 4``` |
+| Operator  | Name                                                    | Example                     |
+| :-------: | ------------------------------------------------------- | --------------------------- |
+| ```and``` | Returns True if both statements are true                | ```x < 5 and  x < 10```     |
+| ```or```  | Returns True if one of the statements is true           | ```x < 5 or x < 4```        |
 | ```not``` | Reverse the result, returns False if the result is true | ```not(x < 5 and x < 10)``` |
 
 ---
 
 ### Identity operators
 
-| Operator | Name | Example |
-|:-:|---|---|
-| ```is``` | Returns True if both variables are the same object | ```x is y``` |
+|   Operator   | Name                                                   | Example          |
+| :----------: | ------------------------------------------------------ | ---------------- |
+|   ```is```   | Returns True if both variables are the same object     | ```x is y```     |
 | ```is not``` | Returns True if both variables are not the same object | ```x is not y``` |
 
 ---
 
 ### Membership operators
 
-| Operator | Name | Example |
-|:-:|---|---|
-| ```in``` | Returns True if a sequence with the specified value is present in the object | ```x in y``` |
+|   Operator   | Name                                                                             | Example          |
+| :----------: | -------------------------------------------------------------------------------- | ---------------- |
+|   ```in```   | Returns True if a sequence with the specified value is present in the object     | ```x in y```     |
 | ```not in``` | Returns True if a sequence with the specified value is not present in the object | ```x not in y``` |
 
 ---
 
 ### Bitwise operators
 
-| Operator | Name | Example |
-|:-:|---|---|
-| ```+``` | Addition | ```x + y``` |
-| ```&``` | AND | Sets each bit to 1 if both bits are 1 |
-| ```\|``` | OR | Sets each bit to 1 if one of two bits is 1 |
-| ```^``` | XOR | Sets each bit to 1 if only one of two bits is 1 |
+| Operator | Name     | Example                                         |
+| :------: | -------- | ----------------------------------------------- |
+| ```+```  | Addition | ```x + y```                                     |
+| ```&```  | AND      | Sets each bit to 1 if both bits are 1           |
+| ```\|``` | OR       | Sets each bit to 1 if one of two bits is 1      |
+| ```^```  | XOR      | Sets each bit to 1 if only one of two bits is 1 |
 
 ---
 
-| Operator | Name | Example |
-|:-:|---|---|
-| ```~``` | NOT | Inverts all the bits |
-| ```<<``` | Zero fill left shift | Shift left by pushing zeros in from the right and let the leftmost bits fall off |
-| ```>>``` | Signed right shift | Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off |
+| Operator | Name                 | Example                                                                                                 |
+| :------: | -------------------- | ------------------------------------------------------------------------------------------------------- |
+| ```~```  | NOT                  | Inverts all the bits                                                                                    |
+| ```<<``` | Zero fill left shift | Shift left by pushing zeros in from the right and let the leftmost bits fall off                        |
+| ```>>``` | Signed right shift   | Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off |
+

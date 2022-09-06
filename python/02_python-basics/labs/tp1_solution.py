@@ -83,6 +83,9 @@ print(f'Is 2022 a leap year? {2022 in leap_years}')
 # 1.3.4
 leap_years[-1]
 
-# 1.3.5
+# 1.3.5 a
 third = slice(0, len(leap_years), 3)
-print(list(leap_years[third]))
+list(leap_years[third])
+
+# 1.3.5 b
+list(leap_years)[0:len(leap_years):3]
