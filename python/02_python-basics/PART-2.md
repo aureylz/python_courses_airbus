@@ -1,6 +1,6 @@
-# Table of Content
+# Python Basics Part 2
 
-- [Table of Content](#table-of-content)
+- [Python Basics Part 2](#python-basics-part-2)
   - [Flow control](#flow-control)
     - [Conditionals](#conditionals)
       - [```if``` .. ```elif``` .. ```else```](#if--elif--else)
@@ -12,13 +12,21 @@
     - [Variable named (keyword) arguments](#variable-named-keyword-arguments)
     - [Both positional and names parameters](#both-positional-and-names-parameters)
 
+---
+
 ## Flow control
 
+---
+
 ### Conditionals
+
+---
 
 Conditions can be used to execute a block of code if and only if some criterias are met.
 
 Criterias are evaluated at run-time and based on your code's variables content.
+
+---
 
 Uncomment the first line, run the sample.
 Then uncomment the second line only, and run the sample again.
@@ -31,11 +39,17 @@ if my_var == 3.1415926:
     print('I recognized Pi')
 ```
 
+---
+
 Conditions also can be nested (indented).
 
 There is no ```select...case``` construct in Python, just use ```if``` .. ```elif```
 
+---
+
 #### ```if``` .. ```elif``` .. ```else```
+
+---
 
 ```python
 catalog_item = 'A220'
@@ -65,13 +79,17 @@ else:
     raise KeyError(f'{catalog_item} does not belong to our catalog')
 ```
 
+---
+
 ### Loops
 
 Loops are used to repeat a block of code a certain amount of times.
 
 The amount of iterations can be the number of items in a list or based on some criterias.
 
-The ```continue``` keyword can be used to skip a specific iteration and is usually used within an ```ìf...``` construct.
+The ```continue``` keyword can be used to skip a specific iteration and is usually used within an ```if ... else``` construct.
+
+---
 
 #### for
 
@@ -96,6 +114,8 @@ for x in range(-10, 10):
     print(f'y({x}) = 1/{x} = {1/x}')
 ```
 
+---
+
 #### while
 
 ```python
@@ -104,6 +124,8 @@ while True:
     if(s=='end'):
         break
 ```
+
+---
 
 ### Exceptions handling
 
@@ -117,6 +139,8 @@ finally:                                # block executed after
     print('always executed at the end')
 ```
 
+---
+
 ## Functions
 
 ```python
@@ -125,6 +149,8 @@ def square(x):
 
 square(3)
 ```
+
+---
 
 ### Variable named (keyword) arguments
 
@@ -140,6 +166,8 @@ if __name__ == "__main__":
     myFunction(a = 'A220', b = 'A319', c = 'A320', d = 'A321')
 ```
 
+---
+
 ### Both positional and names parameters
 
 ```python
@@ -150,3 +178,5 @@ def my_catalog_2(*args, **kwargs):
 if __name__ == "__main__":
     myFunction("A320", "A400M", a = 319, b = 320, c = 321)
 ```
+
+---
