@@ -1,13 +1,17 @@
-# Table of Content
+# Python Basics Part 3
 
-- [Table of Content](#table-of-content)
+- [Python Basics Part 3](#python-basics-part-3)
   - [Files I/O](#files-io)
   - [Parsing](#parsing)
     - [JSON](#json)
     - [CSV](#csv)
   - [Unit tests](#unit-tests)
 
+---
+
 ## Files I/O
+
+---
 
 Write or read file with Python  
 
@@ -23,6 +27,8 @@ f.readline()    # read first line
 f.close()
 ```
 
+---
+
 Using a with-block:  
 
 ```python
@@ -30,7 +36,11 @@ with open('python-test.txt') as f:
     f.read()
 ```
 
+---
+
 ## Parsing
+
+---
 
 ### JSON
 
@@ -42,6 +52,8 @@ json_string = '{"PAR":"Paris", "MRS":"Marseille", "TLS":"Toulouse"}' # read stri
 json_dict = json.loads(json_string)
 json_dict['MRS']
 ```
+
+---
 
 Convert python dict to json string.  
 
@@ -56,7 +68,11 @@ json_string = json.dumps(json_dict)
 print(json_string)
 ```
 
+---
+
 ### CSV
+
+---
 
 Write a csv file.  
 
@@ -79,6 +95,8 @@ with open('cities.csv', 'w', newline='') as csvfile:
     writer.writerow({'code': 'PAR', 'city': 'Paris'})
 ```
 
+---
+
 Read csv file.
 
 ```python
@@ -98,14 +116,22 @@ with open('cities.csv', encoding="utf8") as f:
         print(f"code {line['code']} for city {line['city']}")
 ```
 
+---
+
 ## Unit tests
+
+---
 
 ```python
 assert sum(range(5)) == 10                  # ok => no output
 assert sum(range(5)) == 11, "Should be 10"  # ko => AssertionError: Should be 10
 ```
 
+---
+
 In a file (function + test):
+
+---
 
 ```python
 def square(x):
@@ -114,10 +140,8 @@ def square(x):
 def test_square_5():
     assert square(5) == 25, "Should be 25"
 
-
 def test_square_12():
     assert square(12) == 144, "Should be 144"
-
 
 if __name__ == "__main__":
     test_square_5()
@@ -125,10 +149,16 @@ if __name__ == "__main__":
     print("OK all tests done")
 ```
 
+---
+
 Launch test:
 
 ```bash
 python test_square.py
 ```
 
+---
+
 To write unit tests on your application choose a test runner: unittest, pytest, nose...
+
+---
