@@ -2,12 +2,15 @@
 
 - [Table of Content](#table-of-content)
   - [Files I/O](#files-io)
-  - [Parsing](#parsing)
+    - [Text files](#text-files)
     - [JSON](#json)
     - [CSV](#csv)
+  - [Json parsing](#json-parsing)
   - [Unit tests](#unit-tests)
 
 ## Files I/O
+
+### Text files
 
 Write or read file with Python  
 
@@ -23,41 +26,30 @@ f.readline()    # read first line
 f.close()
 ```
 
-Using a with-block:  
-
+Best practice, using a with-block:  
 ```python
+with open('python-test.txt', 'w') as f:
+    f.write("{'key': 'value'}")
+
 with open('python-test.txt') as f:
-    f.read()
+    str = f.read()
+    print(str)
 ```
-
-## Parsing
-
 ### JSON
 
-Parse json string (to python dict).  
-
+Write: a json file can be written from a string as per a simple file (see above), but json content can also be written directly from a list or dictionnary.  
 ```python
 import json
-json_string = '{"PAR":"Paris", "MRS":"Marseille", "TLS":"Toulouse"}' # read string or file
-json_dict = json.loads(json_string)
-json_dict['MRS']
+with open('python-test.json', 'w') as f:
+    json.dump([{'key': 'value'}, {'key': 'value'}], f)
 ```
-
-Convert python dict to json string.  
-
+Read: a json file can be read as string as per a simple file (see above), but json content can also be read directly as list or dictionnary.  
 ```python
-import json
-json_dict = {
-    "PAR": "Paris", 
-    "MRS": "Marseille", 
-    "TLS": "Toulouse"
-}
-json_string = json.dumps(json_dict)
-print(json_string)
+with open('python-test.json') as f:
+    json.load(infile)
 ```
-
 ### CSV
-
+Define a custon reader/writer to munipulate csv files and use header line.  
 Write a csv file.  
 
 ```python
@@ -86,16 +78,39 @@ import csv
 with open('cities.csv', encoding="utf8") as f:
     reader = csv.reader(f)
     for line in reader:
-        next(reader)    # return next line as a list
         print('|'.join(line))     # can also print(line[1])
 
 # or with DictReader
 fieldnames = ['code', 'city']
 with open('cities.csv', encoding="utf8") as f:
     reader = csv.DictReader(f, fieldnames)
-    next(reader)    # return next line as a dict
+    next(reader)    # return 1rst line as a dict
     for line in reader:
         print(f"code {line['code']} for city {line['city']}")
+```
+
+## Json parsing
+
+Parse json string (to python dict).  
+
+```python
+import json
+json_string = '{"PAR":"Paris", "MRS":"Marseille", "TLS":"Toulouse"}' # read string or file
+json_dict = json.loads(json_string)
+json_dict['MRS']
+```
+
+Convert python dict to json string.  
+
+```python
+import json
+json_dict = {
+    "PAR": "Paris", 
+    "MRS": "Marseille", 
+    "TLS": "Toulouse"
+}
+json_string = json.dumps(json_dict)
+print(json_string)
 ```
 
 ## Unit tests
