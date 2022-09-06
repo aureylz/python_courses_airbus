@@ -35,4 +35,16 @@
 | Sébastien ARFORT | :white_check_mark: | :white_check_mark: |
 | Vivek KUMAR | | :white_check_mark: |
 
+## Sub-modules
+
+- [Environment discovery](01_env-discovery/)
+- [Python basics](02_python-basics/)
+- [Python advanced](03_python-advanced/)
+- [Essential libraries](04_essential-libs/)
+- [Cybersec Tools](05_cybersec-tools/)
+
+## How to set up and launch the notebook?
+
+> bash setup.sh
+
 ---
