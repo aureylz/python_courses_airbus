@@ -1,10 +1,24 @@
 # Python Module
 
+---
+
 - Leader: Olivier ETIENNE
-- Volume: 22h 
+- Volume: 22h
 - 100% on site
 - Course: 40%
 - Labs/HandOn: 60%
+
+---
+
+## Sub-modules
+
+- [Environment discovery](01_env-discovery/)
+- [Python basics](02_python-basics/)
+- [Python advanced](03_python-advanced/)
+- [Essential libraries](04_essential-libs/)
+- [Cybersec Tools](05_cybersec-tools/)
+
+---
 
 ## People
 
@@ -33,3 +47,4 @@
 
 > bash setup.sh
 
+---

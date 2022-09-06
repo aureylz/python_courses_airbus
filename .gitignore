@@ -3,3 +3,8 @@
 .venv/
 .ipynb_checkpoints/
 .log
+.DS_Store
+.pytest_cache
+.vscode
+__pycache__
+.idea
