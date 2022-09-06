@@ -35,6 +35,9 @@
 | Sébastien ARFORT | :white_check_mark: | :white_check_mark: |
 | Vivek KUMAR | | :white_check_mark: |
 
+
+--
+
 ## Sub-modules
 
 - [Environment discovery](01_env-discovery/)
