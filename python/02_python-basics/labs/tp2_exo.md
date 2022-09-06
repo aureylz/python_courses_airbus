@@ -79,14 +79,14 @@
   import calendar
   calendar.month_name[1]
   ``` 
-- 2.3.6 Bonus: use only ```date``` module, with ```strftime``` to display date with previous pattern (```'Today we are Wednesday, the 7th of Sptember'```). [See also](https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior)
-  ```
-  date.today().strftime('%B')
-  date.today().strftime('%A')
-  ```
-- 2.3.7 If not done previously write your order function in a file
-  - Use a ```main``` to call it.  
-  ```
-  python my_tp_file.py 3
-  ```
-  => return "3rd"_
+- 2.3.6 If not done previously write your order function in a file. 
+Use a main to call it.  
+```
+python my_tp_file.py 3
+```
+_=> return "3rd"_
+- 2.3.7  Bonus: use only date module, with strftime to display date with previous pattern ('Today we are Wednesday, the 7th of Sptember'). Cf. https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
+```
+date.today().strftime('%B')
+date.today().strftime('%A')
+``` 
