@@ -174,6 +174,8 @@ def sum(x, y):
 sum(4,5)
 ```
 
+---
+
 Python allows to pass a varying number of parameters, without using a list.
 
 To do so use the unpacking operator ```*```.
