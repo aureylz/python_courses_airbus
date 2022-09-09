@@ -10,8 +10,6 @@ In this sub-module you'll learn the most fundamental concepts that one uses when
 
 This sub-module is divided into 3 chapters.
 
----
-
 Each chapter will be a mix of courses and labs / hands-on.
 
 ---
@@ -19,7 +17,8 @@ Each chapter will be a mix of courses and labs / hands-on.
 - [Chapter 1: Getting Started](PART-1.md)
   - syntax
   - built-in functions
-  - built-in data-types
+  - built-in data-types 
+    _(string, numerical, sequences, dictionnaries, ...)_  
   - operators
   - keywords
 
@@ -28,6 +27,7 @@ Each chapter will be a mix of courses and labs / hands-on.
 - [Chapter 2: Flow controls & Functions](PART-2.md)
   - conditional execution
   - loops
+  - exception handing
   - user defined functions
 
 ---
@@ -35,5 +35,6 @@ Each chapter will be a mix of courses and labs / hands-on.
 - [Chapter 3: I/O & File Parsing](PART-3.md)
   - read / write files
   - parse JSON and CSV
+  - write unit tests
 
 ---
