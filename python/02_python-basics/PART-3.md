@@ -16,7 +16,8 @@
 Write or read file with Python  
 
 ```python
-f = open('python-test.txt', 'x') # x: create if not existing / a: append / w: overwrite
+ # x: create if not existing / a: append / w: overwrite
+f = open('python-test.txt', 'x')
 f.write("content file!")
 f.write("\nnew line")
 
@@ -35,6 +36,7 @@ Using a with-block:
 with open('python-test.txt') as f:
     f.read()
 ```
+> Acts as a try/ catch and close resource at the end
 
 ---
 
@@ -48,11 +50,11 @@ Parse json string (to python dict).
 
 ```python
 import json
-json_string = '{"PAR":"Paris", "MRS":"Marseille", "TLS":"Toulouse"}' # read string or file
+# read string or file
+json_string = '{"PAR":"Paris", "MRS":"Marseille", "TLS":"Toulouse"}'
 json_dict = json.loads(json_string)
-json_dict['MRS']
+json_dict['MRS'] # Marseille
 ```
-
 ---
 
 Convert python dict to json string.  
@@ -65,7 +67,8 @@ json_dict = {
     "TLS": "Toulouse"
 }
 json_string = json.dumps(json_dict)
-print(json_string)
+print(json_string) 
+# {"PAR": "Paris", "MRS": "Marseille", "TLS": "Toulouse"}
 ```
 
 ---
@@ -83,7 +86,8 @@ with open('cities.csv', 'w', newline='') as csvfile:
     writer.writerow(['TLS','Toulouse'])
     writer.writerow(['MRS','Marseille'])
     writer.writerow(['PAR','Paris'])
-
+```
+```python
 # or with DictWriter
 fieldnames = ['code', 'city']
 with open('cities.csv', 'w', newline='') as csvfile:
@@ -106,7 +110,8 @@ with open('cities.csv', encoding="utf8") as f:
     for line in reader:
         next(reader)    # return next line as a list
         print('|'.join(line))     # can also print(line[1])
-
+```
+```python
 # or with DictReader
 fieldnames = ['code', 'city']
 with open('cities.csv', encoding="utf8") as f:
@@ -151,14 +156,17 @@ if __name__ == "__main__":
 
 ---
 
-Launch test:
+Launch tests:
 
 ```bash
-python test_square.py
+python my_file.py
 ```
 
----
-
 To write unit tests on your application choose a test runner: unittest, pytest, nose...
+
+```bash
+pip install pytest
+pytest my_file.py
+```
 
 ---

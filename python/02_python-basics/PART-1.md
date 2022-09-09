@@ -2,6 +2,7 @@
 
 - [Python Basics Part 1](#python-basics-part-1)
   - [Getting started](#getting-started)
+    - [Basic testing](#basic-testing)
   - [Syntax](#syntax)
     - [Indentation](#indentation)
     - [Comments](#comments)
@@ -48,19 +49,24 @@
 
 ---
 
+### Basic testing
+
 We will see in this module some basics of python language.
 
 You can use python interpreter also called REPL (Read Evaluate Print Loop), to check code snippets given in the module.  
 
-Note: "ctrl + d" to quit REPL.
-
 ---
+
 
 ```bash
 /usr/local/bin/python3
 >>> x = 'you'
 >>> print('hello '+x)
+
+hello you
 ```
+
+> Use "ctrl + z" (Windows) or "ctrl + d" (Linux/ Mac) to quit REPL.
 
 ---
 
@@ -116,10 +122,12 @@ my_pi = vrai                        # now my_pi is a boolean
 
 ```python
 my_var = 7
-even = True if my_var % 2 == 0 else False
+even = True if my_var % 2 == 0 else False 
+# even == True
 
 my_word='blue'
-color = my_word if my_word in ('red', 'blue', 'green', 'yellow', 'white', 'black') else None
+color = True if my_word in ('red', 'blue', 'yellow') else None  
+# color == True
 ```
 
 ---
@@ -167,10 +175,10 @@ No ```char``` type in python, only ```str```, but individual characters can be a
 "I'm a string"
 'And this is another string'
 str(10) == str('10')
-r'hello\nyou'    # => 'hello\\nyou'  (raw)
+r'hello\nyou'    # 'hello\\nyou'  (raw)
 
-len('azerty')    # == 6
-'azerty'[0]      # == 'a'
+len('azerty')    # 6
+'azerty'[0]      # 'a'
 ```
 
 ---
@@ -184,16 +192,16 @@ Python 3.7 introduced the concept of f-string which is a nicer syntax compared t
 ```python
 model = 'A220'
 category = 'Single Aisle'
-msg = f"Our {model} is a {category}" 
+msg = f"Our {model} is a {category}"
 ```
-
----
 
 Here, in the string ```msg``` the ```model``` and ```category``` variables will be replaced by their content.
 
 Output:
 
-=> Our ```A220``` is a ```Single Aisle```
+```bash
+Our A220 is a Single Aisle
+```
 
 ---
 
@@ -219,7 +227,9 @@ Return True if the string ends with the specified suffix, otherwise return False
 
 Return the lowest index in the string where substring sub is found within the slice s[start:end]. The find() method should be used only if you need to know the position of sub. Otherwise, use the ```in``` operator:
 
-> ```if 'Py' in 'Python'```
+```python
+if 'Py' in 'Python'
+```
 
 ---
 
@@ -292,7 +302,8 @@ x = complex(1j)
 Collection of ordered and indexed items.  
 
 ```python
-aircrafts = list(("A320", "A330", "A350")) # ['A320', 'A330', 'A350']
+aircrafts = list(("A320", "A330", "A350")) 
+# ['A320', 'A330', 'A350']
 ```
 
 ---
@@ -323,7 +334,8 @@ helicopters = tuple(("H160", "H175")) # ('H160', 'H175')
 Sequence representing an arithmetic progression of integers.  
 
 ```python
-x = range(6) # list(x) => [0, 1, 2, 3, 4, 5]
+x = range(6) 
+list(x) # [0, 1, 2, 3, 4, 5]
 ```
 
 ---
@@ -333,7 +345,8 @@ x = range(6) # list(x) => [0, 1, 2, 3, 4, 5]
 ```dict``` is collection of ordered (since python 3.7) and unique items (key-value pairs).  
 
 ```python
-aircrafts_types = dict(name='A320', age='single_aisle') # {'name': 'A320', 'age': 'single_aisle'}
+aircrafts_types = dict(name='A320', age='single_aisle') 
+# {'name': 'A320', 'age': 'single_aisle'}
 aircrafts_types.keys()
 aircrafts_types.values()
 aircrafts_types.items()
@@ -347,7 +360,8 @@ Concise syntax to build dictionaries (equivalent to a ```for``` loop).
 
 ```python
 cities = {'paris':'france', 'madrid':'spain', 'hamburg':'germany'}
-countries = {c:city for city,c in cities.items()}    # {'france': 'paris', 'spain': 'madrid', 'germany': 'hamburg'}
+countries = {c:city for city,c in cities.items()}    
+# {'france': 'paris', 'spain': 'madrid', 'germany': 'hamburg'}
 ```
 
 ---
@@ -361,8 +375,10 @@ Unordered collection of unique (and unindexed) elements.
 #### ```set```
 
 ```python
-single_aisle = set(("A319", "A320", "A321")) # {'A321', 'A320', 'A319'}
-wide_bodies = set(("A330", "A350", "A380")) # {'A380', 'A330', 'A350'}
+single_aisle = set(("A319", "A320", "A321")) 
+# {'A321', 'A320', 'A319'}
+wide_bodies = set(("A330", "A350", "A380")) 
+# {'A380', 'A330', 'A350'}
 ```
 
 ---
@@ -386,8 +402,9 @@ Any list, tuple, set, and dictionary are True, except empty ones.
 ---
 
 ```python
+# Values evaluated to True:
 bool(True) == bool(5) == bool("hello") == bool ([1,2,3])
-# These are the list of values which evaluates to False
+# Values evaluated to False:
 bool(False)
 bool(None)
 bool(0)
@@ -409,7 +426,6 @@ bool({})
 x = bytes(5)
 ```
 
----
 
 #### ```bytearray```
 
@@ -417,7 +433,6 @@ x = bytes(5)
 x = bytearray(5)
 ```
 
----
 
 #### ```memoryview```
 
@@ -441,7 +456,12 @@ returns a tuple containing a count (from start which defaults to 0) and the valu
 for idx, value in enumerate(['A', 'B', 'C']):
     print(idx, value)
 ```
-
+```bash
+# Result:
+0 A  
+1 B  
+2 C
+```
 ---
 
 [input([prompt])](https://docs.python.org/3/library/functions.html#input): 
@@ -461,6 +481,10 @@ Return the length (the number of items) of an object. The argument may be a sequ
 ```python
 len([1, 2, 3])
 ```
+```bash
+# Result:
+3
+```
 
 ---
 
@@ -477,7 +501,12 @@ Cf PART-3 > Files I/O
 Print objects to the text stream file, separated by sep and followed by end. sep, end, file, and flush, if present, must be given as keyword arguments.
 
 ```python
+name = "John"
 print("Hello ", name)
+```
+```bash
+# Result:
+Hello John
 ```
 
 ---
@@ -487,7 +516,12 @@ print("Hello ", name)
 Iterate over several iterables in parallel, producing tuples with an item from each one.
 
 ```python
-tuples = zip( ['A','B','C'], [1,2,3] ); print(list(tuples))
+tuples = zip( ['A','B','C'], [1,2,3] )
+print(list(tuples))
+```
+```bash
+# Result:
+[('A', 1), ('B', 2), ('C', 3)]
 ```
 
 ---
@@ -499,6 +533,10 @@ Return a slice object representing the set of indices specified by range(start, 
 ```python
 pair = slice(1, 10, 2)
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10][pair]
+```
+```bash
+# Result:
+[2, 4, 6, 8, 10]
 ```
 
 ---
