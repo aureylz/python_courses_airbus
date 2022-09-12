@@ -1,6 +1,6 @@
 # Python basics - Hands on
 
-## 02 - Days of the week
+## PART 2 - Days of the week
 
 ### 2.1 Days (list and loop)
 
@@ -28,24 +28,24 @@
 ### 2.2 Days & mood (dict and comprehension)
 
 - 2.2.1 Write a ```dictionary``` with days of the week, and a mood / action for each day. Use previous ```list``` to get days. Example:  
-  | Key | Value |
-  | --- | --- |
-  | "Monday" | "Starting the week slowly" |
-  | "Tuesday" | "Focus on my studies" |
-  | ... | ... |
+  | Key       | Value                      |
+  | --------- | -------------------------- |
+  | "Monday"  | "Starting the week slowly" |
+  | "Tuesday" | "Focus on my studies"      |
+  | ...       | ...                        |
 - 2.2.2 Display mood of today
 - 2.2.3 Change action for Monday to ```"Starting the week by an exam"```
 - 2.2.4 Remove last item from moods ```dictionnary```
 - 2.2.5 Add item to ```dictionnary```:  
-  | Key | Value |
-  | --- | --- |
-  | "Sunday" | "Relaxing before holidays" |  
+  | Key      | Value                      |
+  | -------- | -------------------------- |
+  | "Sunday" | "Relaxing before holidays" |
 - 2.2.6 Use previous ```dictionnary``` to build a new one, having short day as key and first word of mood / description. _Tip_: ```split``` string. Example:  
-  | Key | Value |
-  | --- | --- |
+  | Key   | Value      |
+  | ----- | ---------- |
   | "Mon" | "Starting" |
-  | "Tue" | "Focus" |
-  | ... | ... |
+  | "Tue" | "Focus"    |
+  | ...   | ...        |
 
 ### 2.3 What day is it? (module and function)
 

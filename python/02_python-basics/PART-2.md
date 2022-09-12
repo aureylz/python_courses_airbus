@@ -108,8 +108,24 @@ The ```continue``` keyword can be used to skip a specific iteration and is usual
 
 #### for
 
+Loop over a collection
+
 ```python
-# loop over simple collections
+for i in ['a', 'b', 'c']:
+    print(i)
+```
+```bash
+# Result 
+a
+b
+c
+```
+
+---
+
+Nested loops
+
+```python
 for i in ['a', 'b', 'c']:
     for j in range(3):
         print(i+str(j), end=" ")
@@ -124,8 +140,9 @@ c0 c1 c2
 
 ---
 
+Loop over dictionary
+
 ```python
-# loop over dictionary
 cities={'TLS':'Toulouse', 'NYC': 'New York'}
 for code in cities:
     print(code, ' : ', cities[code])
@@ -138,11 +155,13 @@ NYC  :  New York
 
 ---
 
+`continue` keyword (also works with while loops)
+
 ```python
-# continue keyword (also work with while loops)
 for x in range(-10, 10):
     if x == 0:
-        # the continue statement will skip the current block of code and keep looping
+        # skip the current block of code and keep looping
+        # thus print line is not executed if x == 0
         continue
     print(f'y({x}) = 1/{x} = {1/x}')
 ```
@@ -155,6 +174,8 @@ y(-9) = 1/-9 = -0.111111111111111
 ---
 
 #### while
+
+Execute statements until a condition is satisfied.
 
 ```python
 res=''
@@ -255,7 +276,7 @@ A function accepts parameters and can return a result.
 def square(x):
     return x * x
 
-square(3) # 3
+square(3) # 9
 ```
 
 ---
@@ -290,6 +311,13 @@ sum(1,2,3,4,5)  # 15
 ---
 
 ### Named (keyword) arguments
+
+```python
+def sum(x, y):
+    return x + y
+
+sum(x=4, y=5)  # 9
+```
 
 You can use the unpacking operator ```**``` for named (keywords arguments).
 
