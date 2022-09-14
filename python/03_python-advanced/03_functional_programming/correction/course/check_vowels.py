@@ -1,5 +1,5 @@
 def check_vowels(letter):
-  list_of_vowels = ['a', 'e', 'i', 'o', 'u']
+  list_of_vowels = ['a', 'e', 'i', 'o', 'u','y']
   if letter in list_of_vowels:
       return True
   else:
