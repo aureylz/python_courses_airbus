@@ -4,6 +4,7 @@
   - [Files I/O](#files-io)
   - [Parsing](#parsing)
     - [JSON](#json)
+  - [> json.loads to deserialize a string to a Python object](#-jsonloads-to-deserialize-a-string-to-a-python-object)
     - [CSV](#csv)
   - [Unit tests](#unit-tests)
 
@@ -30,7 +31,8 @@ f.close()
 
 ---
 
-Using a with-block:  
+Using a with-block  
+_=> standard way to read/ write in files_
 
 ```python
 with open('python-test.txt') as f:
@@ -55,6 +57,7 @@ json_string = '{"PAR":"Paris", "MRS":"Marseille", "TLS":"Toulouse"}'
 json_dict = json.loads(json_string)
 json_dict['MRS'] # Marseille
 ```
+> json.loads to deserialize a string to a Python object
 ---
 
 Convert python dict to json string.  
@@ -70,8 +73,30 @@ json_string = json.dumps(json_dict)
 print(json_string) 
 # {"PAR": "Paris", "MRS": "Marseille", "TLS": "Toulouse"}
 ```
+> json.dumps to serialize an object as a json formatted `string`
 
 ---
+
+Write a json file.
+
+```python
+import json
+with open('cities.json', 'w') as jsonfile:
+    json.dump({ "PAR": "Paris", "MRS": "Marseille",  "TLS": "Toulouse"}, jsonfile)
+```
+> json.dump to serialize an object as a json formatted `stream` into a file
+
+---
+
+Read a json file.
+
+```python
+import json
+with open('cities.json', 'r') as jsonfile:
+    cities_dict = json.load(jsonfile)
+print(cities_dict)
+```
+> json.load to deserialize file content to a Python object 
 
 ### CSV
 
@@ -91,8 +116,7 @@ with open('cities.csv', 'w', newline='') as csvfile:
 # or with DictWriter
 fieldnames = ['code', 'city']
 with open('cities.csv', 'w', newline='') as csvfile:
-    fieldnames = ['code', 'city']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer = csv.DictWriter(csvfile, fieldnames)
     writer.writeheader()
     writer.writerow({'code': 'TLS', 'city': 'Toulouse'})
     writer.writerow({'code': 'MRS', 'city': 'Marseille'})

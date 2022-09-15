@@ -2,12 +2,13 @@ from datetime import date
 from calendar import month_name
 import sys
 
-# 02 - Days of the week
+# PART 2 - Days of the week
 
 # 2.1 Days
 
 # 2.1.1
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+print(days)
 
 # 2.1.2 (example for Wednesday)
 days[2]
@@ -36,9 +37,10 @@ days.remove('yasdydy')  # or del(days[7]) or days.pop(7)
 # 2.2.1
 days_moods = {days[0]: "Starting the week slowly", days[1]: "Focus on my studies", days[2]: "Looking for a new TV show",
               days[3]: "Time to have a beer in the city center", days[4]: "Preparing the week-end", days[5]: "Ready for the party!", days[6]: "Studying for tomorrow's  exams"}
+print(days_moods)
 
 # 2.2.2 (example for Wednesday)
-days_moods['Wednesday']
+print(days_moods['Wednesday'])
 
 # 2.2.3
 days_moods['Monday'] = "Starting the week by an exam"
@@ -51,6 +53,7 @@ days_moods.update({'Sunday': 'Relaxing before holidays'})  # or days_moods['Sund
 
 # 2.2.6
 shortdays_moods = {day[:3]: mood.split()[0] for day, mood in days_moods.items()}
+print(shortdays_moods)
 
 # 2.3 What day is it?
 

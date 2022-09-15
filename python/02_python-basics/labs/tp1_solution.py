@@ -1,4 +1,4 @@
-# 01 - Presentation
+# PART 1 - Presentation
 
 # 1.1 Who are you?
 
@@ -58,7 +58,7 @@ position = name.lower().find('anna')  # or name.lower().index('anna')
 # 1.2.3
 name = name.lower()
 print(name.count('li'))
-print(name.find('li') == 0)  # first position of substring
+print(name.find('li'))  # first position of substring
 
 # 1.2.4
 print(name.rstrip('an').capitalize())
@@ -88,4 +88,4 @@ third = slice(0, len(leap_years), 3)
 list(leap_years[third])
 
 # 1.3.5 b
-list(leap_years)[0:len(leap_years):3]
+list(leap_years)[0:-1:3]

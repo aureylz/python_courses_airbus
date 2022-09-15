@@ -6,7 +6,7 @@ Excercises can be made directly in the REPL.
 >>> print("Starting exercices...")
 ```
 
-## 1 - Presentation
+## PART 1 - Presentation
 
 ### 1.1 Who are you? (var and str)
 
@@ -31,16 +31,16 @@ Consider firstname: 'Lilianna'
 - 1.2.2 Does it contain 'Anna'? (not case sensitive)
   - Give postion where we can find 'anna' in the name
 - 1.2.3 Convert ```name```'s content into lower case
-  - How manay times we can find 'li' in the name
+  - How many times we can find 'li' in the name
   - What's the index of 'li' found in the name
-- 1.2.4 Extract first half of the name (that is 'Lili'), convert the result to capital case using string methods
+- 1.2.4 Extract first half of the name (that is 'Lili'), convert the result to capital case using string methods. _Tip_: look for strip method
   - Do the same, but with the second part ('anna')
-- 1.2.5 Extract the letters whose index is an even number 'llan' in the variable ```name```. _Tip_: use string[ start: end: step]
+- 1.2.5 Extract the letters whose index is an even number (result == 'llan') in the variable ```name```. _Tip_: use string[ start: end: step]
 
 ### 1.3 Leap year (operators)
 
 - 1.3.1 Compute if current year is a leap year?  (can be divided by 4 but not 100 or by 400)
-  - Try the same with 1900
+  - Try the same with 1904
 - 1.3.2 Build a sequence of leap years (from year 1904 to now)
 - 1.3.3 Use previous sequence to check if current year is a leap year
 - 1.3.4 Display last leap year from sequence

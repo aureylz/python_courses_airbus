@@ -342,7 +342,7 @@ list(x) # [0, 1, 2, 3, 4, 5]
 
 ### Dictionaries
 
-```dict``` is collection of ordered (since python 3.7) and unique items (key-value pairs).  
+```dict```: collection of ordered (since python 3.7) and unique items (key-value pairs).  
 
 ```python
 aircrafts_types = dict(name='A320', age='single_aisle') 

@@ -1,124 +1,22 @@
-from datetime import datetime
-from zoneinfo import ZoneInfo
-from time import sleep
 import json
 import csv
 import os
 
-print ('TP N°3 (Python Basics)')
-print('Functions')
+# PART 3 - Aircrafts
 
-print(f"""3.1.1 - Use one of the datetime module functions to displays the current time in your zone: 
-    {datetime.now().time()}""")
+# 3.1 Files
 
+# 3.1.1
 
-def what_time_is_it():
-    print(f"""3.1.2 - Wrap the above code into a new function to display the current time in your zone: 
-    {datetime.now().time()}""")
+# save dict to file
+with open('my_dict.json', 'w') as jsonfile:
+    json.dump({'plane_1': 'A220', 'plane_2': 'A320', 'plane_3': 'A330', 'plane_4': 'A350'}, jsonfile, indent=2)
 
-
-what_time_is_it()
-
-
-def what_zulu_time_is_it():
-    print(f"""3.1.3 - Modify the earlier created function to display the current time in UTC:
-    {datetime.utcnow().time()} (Zulu)""")
-
-
-what_zulu_time_is_it()
-
-
-def what_zulu_time_is_it_fancy(display_format: str):
-    # formatting https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
-    print(f"""3.1.4 - Modify again the function to accept a time formatter to customize the time display format:
-    {datetime.utcnow().time().strftime(display_format)}""")
-
-
-def what_time_is_it_fancy_39(display_format: str, time_zone: str):
-    # zoneinfo Python >= 3.9 https://docs.python.org/3/library/zoneinfo.html#module-zoneinfo
-    print(f"""3.1.4 - Python >= 3.9:
-    {datetime.now(ZoneInfo(time_zone)).time().strftime(display_format)} in {time_zone}""")
-
-
-def what_time_is_it_fancy(display_format: str, time_zone: str):
-    print(f"""3.1.4 - Python >= 3.9:
-    {datetime.now(ZoneInfo(time_zone)).time().strftime(display_format)} in {time_zone}""")
-
-
-what_zulu_time_is_it_fancy('It is %-I %p past by %S mn')
-what_time_is_it_fancy_39('%H:%M:%S', 'US/Pacific')
-
-
-def what_time_is_it_smart(display_format: str = '%H:%M:%S', in_zulu_time: bool = False):
-    if in_zulu_time:
-        current_date = datetime.utcnow().time().strftime(display_format)
-    else:
-        current_date = datetime.now().time().strftime(display_format)
-    print(f"""3.1.5 - Now make the parameters optional, if not provided, display time in your current zone:
-    {current_date} in {'UTC' if in_zulu_time else 'CET' }""")
-
-
-def what_time_is_it_smart_39(display_format: str = '%H:%M:%S', time_zone: str = 'CET'):
-    print(f"""3.1.5 - Python >= 3.9:
-    {datetime.now(ZoneInfo(time_zone)).time().strftime(display_format)} in {time_zone}""")
-
-
-what_time_is_it_smart()
-what_time_is_it_smart(in_zulu_time=True)
-what_time_is_it_smart_39()
-what_time_is_it_smart_39(time_zone='Europe/Paris')
-
-
-def simple_clock(duration: int = 3):
-    print(f"""3.2.1 - Create a function that displays the current time during 1 mn and refresh every second:""")
-    for sec in range(duration):
-        print(datetime.now().time())
-        sleep(1)
-
-
-def simple_clock_even_odd(duration: int = 6):
-    print(f"""3.2.2 - Modify the above function so that it displays even seconds differently""")
-    for sec in range(duration):
-        current_time = datetime.now().time()
-        if current_time.second % 2 == 0:
-            display_format = "%H:%M:%S (Even)"
-        else:
-            display_format = "%H:%M:%S (Odd)"
-        print(f'{current_time.strftime(display_format)}')
-        sleep(1)
-
-
-simple_clock()
-simple_clock_even_odd(5)
-
-
-def simple_timer(duration: int = 12):
-    print("""3.2.3 - Create a countdown time that displays a * each second, but starts displaying the 10 remaining seconds""")
-    for count_down in range(duration, 0, -1):
-        if count_down > 10:
-            print('*', end='')
-        else:
-            print(count_down, end=' ')
-        sleep(1)
-
-
-def simple_timer_alt(duration: int = 12):
-    print("""3.2.3 - Alternate way""")
-    while duration >= 0:
-        if duration > 10:
-            print('*', end='')
-        else:
-            print(duration, end=' ')
-        sleep(1)
-        duration -= 1
-
-
-simple_timer()
-simple_timer_alt()
+# function reading key-values and save them into a json file
 
 
 def save_as_json(**kwargs):
-    print("""Create a function that accepts an arbitrary number of key / value parameters and save it as json""")
+    print("""Create a function that accepts an unknown number of key / value parameters and save it as json""")
     try:
         with open('my_dict.json', 'wt') as json_file:
             json.dump({k: v for k, v in kwargs.items()}, json_file, indent=2)
@@ -126,18 +24,17 @@ def save_as_json(**kwargs):
         print(ex)
 
 
-save_as_json(plane_1='A220', plane_2='A320', plane_3='A330', plane_4='A350')
+save_as_json({'plane_1': 'A220', 'plane_2': 'A320', 'plane_3': 'A330', 'plane_4': 'A350'})
 
 
-
-print('3.3.2')
+# 3.1.2
 with open('tp3_airbus_family.csv') as f:
     reader = csv.reader(f, delimiter=',')
     next(reader)  # skip header
     for line in reader:
         print(line)
 
-print('3.3.3')
+# 3.1.3
 titles = ['name', 'seating', 'range']
 with open('tp3_airbus_family.csv') as f:
     reader = csv.DictReader(f, titles)
@@ -145,9 +42,8 @@ with open('tp3_airbus_family.csv') as f:
     for line in reader:
         print(line)
 
-# 3.3.4
-
-print('3.3.4a')
+# 3.1.4
+# 3.1.4a Simple solution: build the list, and then record entire object at the end
 titles = ['name', 'seating', 'range']
 aircrafts = []
 with open('tp3_airbus_family.csv') as infile:
@@ -158,7 +54,7 @@ with open('tp3_airbus_family.csv') as infile:
 with open('tp3_airbus_family.json', 'w') as outfile:
     outfile.write(json.dumps(aircrafts))
 
-print('3.3.4b')
+# 3.1.4b More complex: process and record line by line
 titles = ['name', 'seating', 'range']
 with open('tp3_airbus_family.csv') as infile:
     reader = csv.DictReader(infile, titles)
@@ -173,9 +69,11 @@ with open('tp3_airbus_family.csv') as infile:
             first_line = False
         outfile.write('\n]')
 
-# 3.4 Test
+# 3.2 Tests
 
-print('3.4.1')
+# 3.2.1
+
+
 def aircrafts_csv_to_json(csvin: str, jsonout: str):
     titles = ['name', 'seating', 'range']
     aircrafts = []
@@ -188,7 +86,8 @@ def aircrafts_csv_to_json(csvin: str, jsonout: str):
         outfile.write(json.dumps(aircrafts))
 
 
-print('3.4.2')
+# 3.2.2
+
 def test_aircrafts_csv_to_json():
     jsontest = 'tp3_conversion-test.json'
     aircrafts_csv_to_json(csvin='tp3_airbus_family.csv', jsonout=jsontest)
@@ -214,7 +113,7 @@ def test_aircrafts_csv_to_json():
         os.remove(jsontest)
 
 
-print('3.4.3')
+# 3.2.3
 if __name__ == "__main__":
     test_aircrafts_csv_to_json()
     print("test Ok")
