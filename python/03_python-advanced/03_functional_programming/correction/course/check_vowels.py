@@ -6,4 +6,6 @@ def check_vowels(letter):
       return False
 letters = ['t', 'e', 'm', 'c', 'i', 'd', 'z', 'p', 'o']
 filtered_object = filter(check_vowels, letters)
+# Shorter version.
+filtered_objects = filter(lambda x: x in ['a', 'e', 'i', 'o', 'u','y'], letters)
 print(list(filtered_object))
