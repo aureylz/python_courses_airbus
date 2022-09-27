@@ -3,9 +3,15 @@
 
 In this course, we'll be discovering how Python deals with OOP.
 
+---
+
 We'll be building a ```class```, step by step, to introduce some of the more crucials OO paradigms.
 
+---
+
 At the end of this course, you will have aquired the following concepts:
+
+---
 
 - the special ```__init__()``` method which one can see as a constructor in other OO languages
 - difference between class and instance properties
@@ -13,22 +19,38 @@ At the end of this course, you will have aquired the following concepts:
 - use of the ```@property``` and ```@property.setter``` decorators to introduce C++ getters et setters
 - inheritance, ```abstract classes``` and ```abstract methods```
 
+---
+
 > See also [python.org](https://docs.python.org/3/tutorial/classes.html) ```class``` tutorial.
+
+---
 
 ## Classes
 
+---
+
 > Classes provide a means of bundling data and functionality together.
+
+---
 
 A class is a new type of object which can contain:
 
 - data / properties / attributes (Python variables)
 - functionality / methods (Python functions)
 
+---
+
 Once declared, one can then create new instances of this class like with native types.
+
+---
 
 ### A simple class
 
-Let's create the simplest possible class to start coding around airpcrafts, and then add feature to demonstrate object programming concepts:
+---
+
+Let's create the simplest possible class to start coding around airpcrafts, and then add features to demonstrate object programming concepts:
+
+---
 
 ```python
 # Declaration of our new class
@@ -36,7 +58,11 @@ class SimpleAircraft:
     """This new type will be used to model any sort of airplanes"""
 ```
 
+---
+
 Now, let's use this new class by creating 3 new variables / instances of our new SimpleAircraft type:
+
+---
 
 ```python
 a320 = SimpleAircraft()
@@ -44,16 +70,28 @@ a400m = SimpleAircraft()
 c295 = SimpleAircraft()
 ```
 
+---
+
 ### Constructors
+
+---
 
 It is possible to customize the creation of your class by overriding the special ```__init__()``` method.
 
+---
+
 The ```__init__()``` method (a.k.a. constructor in some other OO languages) is being called automatically by Python when an instance is created.
+
+---
 
 That, as a class implementer, gives you a chance to eventually pass some parameters or further customize the creation.
 
+---
+
 - Notice the use of default parameter's values in the below example.
 - The ```self``` variable is like ```this``` in java or C++, it simply means 'this instance'
+
+---
 
 ```python
 class SimpleAircraft:
@@ -66,12 +104,18 @@ class SimpleAircraft:
         self.is_cargo = is_cargo
 ```
 
+---
+
 Now the same 3 planes as earlier, but with the new syntaxical sugar:
+
+---
 
 The use of named parameters can be helpful:
 
 - to be more explicit when lot of complex parameters are to be passed in
 - when you want to rely on default values for most parameters and only pass some overrides (see ```a350``` example beneath)
+
+---
 
 ```python
 my_a320 = SimpleAircraft('A320')
@@ -81,28 +125,52 @@ my_cargo = SimpleAircraft('C295', is_military=True, is_cargo=True)
 a350 = SimpleAircraft('A350F', is_cargo=True)
 ```
 
+---
+
 ### Functions in a class
 
-classes can (and most probably should...) also contain methods (functions) that can change the state of your internal variables.
+---
+
+Classes can (and most probably should...) also contain methods (functions) that can change the state of your internal variables.
+
+---
 
 There are three distinct types of functions tied to ```class```:
+
+---
 
 - class methods (using ```@classmethod``` decorator and ```cls``` as the first parameter)
   - has access to class variables
   - has no access to instance variables
+
+---
+
 - static methods (using ```@staticmethod``` decorator)
   - has no access to neither class nor instance variables
   - usually an helper method that only relies on the passed in parameters
+
+---
+
 - instance methods (using ```self``` as the first parameter)
   - has access to both class and instance variables 
 
+---
+
 In the below example, we'll append a ```convert()``` method that'll change the cabin layout of our ```SimpleAircraft```.
+
+---
 
 But, in the real world, not all models can support such a transformation, we also want to implement this logic, for that we'll need an additional ```is_convertible``` variable.
 
+---
+
 The current cabin layout / state is stored in ```is_cargo```.
 
+---
+
 Because only two layouts are supported (cargo or passengers), a boolean is plainly sufficient to code the layout.
+
+---
 
 ```python
 class SimpleAircraft:
@@ -117,7 +185,10 @@ class SimpleAircraft:
         self.is_military = is_military
         self.is_cargo = is_cargo
         self.is_convertible = is_convertible
+```
 
+
+```python
     def convert(self, to_cargo: bool = None) -> str:
         """
         Modifies the cabin layout (if the model supports it) so that it can accommodate to either:
@@ -141,7 +212,11 @@ class SimpleAircraft:
             raise ValueError(f'Sorry, {self.model_name} is not convertible from / to cargo')
 ```
 
-The A400M is such a aircraft that can accomodate both passengers and freight, let's implement that in code:
+---
+
+The A400M is such an aircraft that can accomodate both passengers and freight, let's implement that in code:
+
+---
 
 ```python
 # As we haven't explicitly set the is_cargo,
@@ -156,30 +231,30 @@ new_layout = a400m.convert(to_cargo=False)
 print(f'cabin layout is {new_layout}')
 ```
 
+---
+
 Result:
 
-```csv
+```text
 cabin layout is in cargo mode: False
 cabin layout is cargo
 cabin layout is cargo
 cabin layout is passengers
 ```
 
+---
+
 ### Data members (properties / variables)
+
+---
 
 > class variables are shared by all instances whilst instances variables as tied to a specific instance.
 
-In the below example:
-
-- the ```_models_list``` is a class variable whose value is shared accross all instances, it'll contain the list of all our planes's ID
-- the ```_model_name``` an instance variable whose value can be different for each instance we'll be creating
-- notice the use of the ```_``` (single underscore) prefix, this is the Python convention to tell this is a private instance / class variable:
-- notice the use of the ```__``` (double underscores) prefix, this is the Python convention to tell this is a protected instance / class variable:
-- to distinguish class from instance variables we're using the ```self``` variable to prefix instance variables
-- the use of getter (```@property```) and setter as optional as instance variables can be accessed directly, but it provides you with more control.
-- the ```all_family``` property is read-only and because a ```list``` in Python is mutable, we purposedly return a shallow copy of our internal list to be sure nobody can modify our list from the outside world!
+---
 
 The below ```A32xFamily``` can be used to modelize a family of planes that are variations of the A320 but in a longer or shorter bodies.
+
+---
 
 ```python
 class A32xFamily:
@@ -210,7 +285,37 @@ class A32xFamily:
         self._registration_id = new_id
 ```
 
+---
+
+In the earlier example:
+
+---
+
+- the ```_models_list``` is a class variable whose value is shared accross all instances, it'll contain the list of all our planes's ID
+
+
+- the ```_model_name``` an instance variable whose value can be different for each instance we'll be creating
+
+
+- notice the use of the ```_``` (single underscore) prefix, this is the Python convention to tell this is a private instance / class variable
+
+
+- notice the use of the ```__``` (double underscores) prefix, this is the Python convention to tell this is a protected instance / class variable
+
+
+- to distinguish class from instance variables we're using the ```self``` variable to prefix instance variables
+
+
+- the use of getter (```@property```) and setter as optional as instance variables can be accessed directly, but it provides you with more control.
+
+
+- the ```all_family``` property is read-only and because a ```list``` in Python is mutable, we purposedly return a shallow copy of our internal list to be sure nobody can modify our list from the outside world!
+
+---
+
 Ok, let's now play a bit with this class to see the difference between the class and instance variables:
+
+---
 
 ```python
 plane1 = A32xFamily('A319', '5084Q')
@@ -224,6 +329,10 @@ print('plane2.all_family', plane2.all_family)
 plane3 = A32xFamily('A320', '3056K')
 print(plane3.details)
 print('plane3.details before retail', plane3.details)
+```
+
+
+```python
 # let's imagine we retail this plane and thus need to get a new registration ID in another country
 plane3.registration_id = '1234A'
 print('plane3.all_family', plane3.all_family)
@@ -237,6 +346,8 @@ print('plane2.all_family', plane2.all_family)
 print('plane3.all_family', plane3.all_family)
 print('plane4.all_family', plane4.all_family)
 ```
+
+---
 
 Output:
 
@@ -257,21 +368,38 @@ plane3.all_family ['A319', 'A320', 'A321']
 plane4.all_family ['A319', 'A320', 'A321']
 ```
 
+---
+
 ## Inheritance
 
 Classes can be inherited / derived (specialized) so that child classes benefit from parent's properties and methods.
 
+---
+
 Derived classes may override (specialize) methods of their base classes
+
+---
 
 Python has two built-in functions that work with inheritance:
 
+---
+
 - Use ```isinstance()``` to check an instance’s type: ```isinstance(obj, int)``` will be True only if ```obj.__class__``` is int or some class derived from int.
 - Use issubclass() to check class inheritance: issubclass(bool, int) is True since bool is a subclass of int. However, issubclass(float, int) is False since float is not a subclass of int.
-- An abstract class (inherits from ```ABC```) means it can not be instanciated, but usually acts as a common ancestor for normal inherited classes.
+
+---
+
+An abstract class (inherits from ```ABC```) means it can not be instanciated, but usually acts as a common ancestor for normal inherited classes.
+
+---
 
 The syntax for a derived class definition looks like this:
 
+---
+
 ```python
+from abc import ABC
+
 class AircraftBase(ABC):
     """A machine or device, such as an airplane, helicopter, glider, or dirigible, capable of atmospheric flight."""
 
@@ -294,8 +422,10 @@ class AircraftBase(ABC):
     @property
     def model_name(self) -> str:
         return self._model_name
+```
 
 
+```python
 class Helicopter(AircraftBase):
     """Any kind of helicotpers"""
 
@@ -311,8 +441,10 @@ class Helicopter(AircraftBase):
         """
         print(f'refueling (adapted for helicopter) {type(self).__name__} type {self._model_name} registered under {self._registration_id}')
         return 177
+```
 
 
+```python
 class AirplaneBase(AircraftBase, ABC):
     """Any kind of planes"""
     def __init__(self, model_name: str, registration_id: str, wing_size: int, is_cargo: bool = False):
@@ -327,22 +459,28 @@ class AirplaneBase(AircraftBase, ABC):
         """
         print(f'refueling (overridden for aiplanes) {type(self).__name__} type {self._model_name} registered under {self._registration_id}')
         return 1023
+```
 
 
+```python
 class TurboProp(AirplaneBase):
     """A turbojet engine used to drive an external propeller."""
     def __init__(self, model_name: str, registration_id: str, propeller_size: int, wing_size: int, is_cargo: bool = False):
         super().__init__(model_name=model_name, registration_id=registration_id, wing_size=wing_size, is_cargo=is_cargo)
         self.propeller_size = propeller_size
+```
 
 
+```python
 class Jet(AirplaneBase):
     """an aircraft that uses airbreathing jet engines, which take in air, burn fuel with it in a combustion chamber"""
     def __init__(self, model_name: str, registration_id: str, engine_brand: str, wing_size: int, is_cargo: bool = False):
         super().__init__(model_name=model_name, registration_id=registration_id, wing_size=wing_size, is_cargo=is_cargo)
         self.engine_brand = engine_brand
+```
 
 
+```python
 class Glider(AirplaneBase):
     """ heavier-than-air aircraft that do not employ propulsion once airborne"""
     def init(self, model_name: str, registration_id: str, wing_size: int):
@@ -351,6 +489,8 @@ class Glider(AirplaneBase):
     def refuel(self) -> int:
         raise(NotImplemented('One cannot refuel a glider because it has no engine!'))
 ```
+
+---
 
 Creating some instances of this hierarchy:
 
@@ -363,9 +503,11 @@ print(f'Total delivered liters: {my_jet.refuel()}')
 print(f'Total delivered liters: {my_turbo_prop.refuel()}')
 ```
 
+---
+
 Results:
 
-```csv
+```text
 refueling (adapted for helicopter) Helicopter type H175 registered under 1234A
 Total delivered liters: 177
 refueling (overridden for aiplanes) Jet type A220 registered under 3456H
