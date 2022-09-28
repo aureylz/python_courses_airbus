@@ -98,7 +98,7 @@ But, at the end of the day, we want to be able to run those bits of code to inte
     except AttributeError as ex:
         print(ex.args[0])
     my_credit_card.withdraw(6.35, 'Canteen')
-    my_credit_card.withdraw(189.0, 'Beers with the tam')
+    my_credit_card.withdraw(189.0, 'Beers with the team')
     my_credit_card.withdraw(120.0, 'Fuel for the car')
     try:
         my_credit_card.withdraw(10000.0, "With that account I can get that car, but I'll pay massive debt fees...")
