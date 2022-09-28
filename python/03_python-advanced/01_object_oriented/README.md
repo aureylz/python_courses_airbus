@@ -16,7 +16,7 @@ At the end of this course, you will have aquired the following concepts:
 - the special ```__init__()``` method which one can see as a constructor in other OO languages
 - difference between class and instance properties
 - class methods
-- use of the ```@property``` and ```@property.setter``` decorators to introduce C++ getters et setters
+- use of the ```@property``` and ```@property.setter``` decorators to introduce Python getters et setters
 - inheritance, ```abstract classes``` and ```abstract methods```
 
 ---
