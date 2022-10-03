@@ -22,7 +22,15 @@
 
 > bash ../setup.sh
 
+## Essential libs
+In this course we will focus on few libraries for the practice. You can dig into this repo to have examples of others. 
+We will see in particular :
+- Requests
+- Flask
+- Pandas
+
+
 ## TP
 
-- [CLI And WebScrpping](04_TP/01-CLI_Webscrapping.md)
+- [TP](04_TP/TP.md)
 
