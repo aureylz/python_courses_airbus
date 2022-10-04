@@ -1,7 +1,7 @@
 import requests
 from requests import HTTPError
 
-base_url = "http://localhost:5000"
+base_url = "http://localhost:5100"
 # 1 Requests get home page
 response = requests.get(f"{base_url}")
 print(response.text)
@@ -21,7 +21,7 @@ if response.status_code == 404:
 
 # 4.2 Page does not exist the HTTPError way
 try:
-    response = requests.get("http://localhost:5000/do_not_exit")
+    response = requests.get(f"{base_url}/do_not_exit")
     response.raise_for_status()
     print(response)
 except HTTPError as e:
@@ -33,3 +33,6 @@ filter = {"first_name": "George"}
 response = requests.get(f"{base_url}/user", params=filter)
 print(response.json())
 
+response = requests.post(f"{base_url}/user", data={"user": "2"})
+print(response.text)
+print("coucou")

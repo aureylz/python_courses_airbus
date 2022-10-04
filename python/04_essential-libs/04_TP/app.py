@@ -31,22 +31,23 @@ def hello_world():
     return "<p>Hello, World!</p>"
 
 
-@app.route("/hello")
-def pouet():
-    return "coucou"
-
 @app.route('/user/<int:uid>')
 def get_user_by_id(uid):
     return users[uid].__dict__
 
-@app.route('/user')
-def get_user():
+@app.route("/user", methods=["POST", "GET"])
+def user():
+    if request.method == 'POST':
+        print("hello")
+        return request.form
     args = request.args
     filter = args.get("first_name")
     print(filter)
     if filter is None:
         return f"Invalid filter, got {args}, expect first_name=John"
     return [usr.__dict__ for usr in users if usr.first_name == filter]
+
+
 
 @app.route('/users')
 def get_users():

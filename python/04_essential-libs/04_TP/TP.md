@@ -51,4 +51,7 @@ Append a new line with the call to raise_for_status on the object response, and 
 
 ### 5. Web Server evolutions
 
-#TODO
+Now it is time to make few modifications to the web server. Take some time to consider Flask documentation, the jupyter notebook we provided and also the code itself. 
+
+It is time to POST some data (or PUT if you prefer) into the CSV file that is our "database". Prepare a route that append a user.
+A RESTFul way to do this is to make 
