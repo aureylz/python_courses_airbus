@@ -3,14 +3,14 @@
 ## Courses
 
 - [General](01_general)
-    - [Click](01_general/01_click.ipynb)
+    - X [Click](01_general/01_click.ipynb)
     - [Collections](01_general/02_collections.ipynb)
-    - [Loguru](01_general/03_loguru.ipynb)
+    - X [Loguru](01_general/03_loguru.ipynb)
     - [Threading](01_general/04_threading.ipynb)
     - [Boto](01_general/05_boto.ipynb)
 - [Networking](02_networking)
-    - [Requests](02_networking/01_requests.ipynb)
-    - [Flask](02_networking/02_flask.ipynb)
+    - X [Requests](02_networking/01_requests.ipynb)
+    - X [Flask](02_networking/02_flask.ipynb)
     - [FastAPI](02_networking/03_fastapi.ipynb)
 - [Data](03_data)
     - [Beautifulsoup](03_data/01_beautifulsoup.ipynb)
@@ -32,5 +32,5 @@ We will see in particular :
 
 ## TP
 
-- [TP](04_TP/TP.md)
+- [TP](04_TP/TP_01.md)
 
