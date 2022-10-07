@@ -1,0 +1,11 @@
+pytest
+pytest-cov
+
+nose
+nosexcover
+
+pylint
+
+bandit
+
+coverage
