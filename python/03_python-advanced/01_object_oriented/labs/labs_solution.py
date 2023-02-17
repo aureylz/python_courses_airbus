@@ -150,7 +150,7 @@ class CurrentAccount(BankAccountBase):
     _debt_clearance = -100.0
 
     def __init__(self, owner: str, initial_balance):
-        super(CurrentAccount, self).__init__(owner, initial_balance)
+        super().__init__(owner, initial_balance)
 
     def withdraw(self, amount: float, description: str = None) -> float:
         if self._closed_at is not None:
@@ -175,7 +175,7 @@ class SavingAccount(BankAccountBase):
     but each customer can negotiate a different rate while opening (instance variable).
     """
     def __init__(self, owner: str, initial_balance: float, interest_rate: float = .02):
-        super(SavingAccount, self).__init__(owner, initial_balance)
+        super().__init__(owner, initial_balance)
         self._interest_rate = interest_rate
 
     def withdraw(self, amount: float, description: str = None) -> float:
@@ -205,7 +205,7 @@ class CreditCardAccount(BankAccountBase):
     _debt_rate = .18
 
     def __init__(self, owner: str, initial_balance: float, payment_delay_days: int = 30):
-        super(CreditCardAccount, self).__init__(owner, initial_balance)
+        super().__init__(owner, initial_balance)
         self._payment_delay_days = payment_delay_days
 
     def withdraw(self, amount: float, description: str = None) -> float:
