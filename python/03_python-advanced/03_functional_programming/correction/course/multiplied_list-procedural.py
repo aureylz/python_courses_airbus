@@ -4,4 +4,6 @@ def multiplyList(myList):
     for x in myList:
         result = result * x
     return result
+
+
 multiplyList(l)

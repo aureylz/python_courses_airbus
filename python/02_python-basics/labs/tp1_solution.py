@@ -32,12 +32,12 @@ len(name)
 
 # 1.1.7
 print(name[0])
-print(name[len(name)-1])
+print(name[len(name) - 1])
 # This also returns the last letter
 print(name[-1])
 
 # 1.1.8
-print(name.endswith(('a', 'e', 'i', 'o', 'u', 'y')))
+print(name.endswith(("a", "e", "i", "o", "u", "y")))
 
 # 1.1.9
 presentation = f"My name is {name}, I'm {age} years old and {level} in Python"
@@ -49,20 +49,20 @@ print(presentation)
 # 1.2  Names from Lilianna
 
 # 1.2.1
-name = 'Lilianna'.upper()
+name = "Lilianna".upper()
 
 # 1.2.2
-found = 'anna' in name.lower()  # preferred way if you don't need position
-position = name.lower().find('anna')  # or name.lower().index('anna')
+found = "anna" in name.lower()  # preferred way if you don't need position
+position = name.lower().find("anna")  # or name.lower().index('anna')
 
 # 1.2.3
 name = name.lower()
-print(name.count('li'))
-print(name.find('li'))  # first position of substring
+print(name.count("li"))
+print(name.find("li"))  # first position of substring
 
 # 1.2.4
-print(name.rstrip('an').capitalize())
-print(name.lstrip('li').capitalize())
+print(name.rstrip("an").capitalize())
+print(name.lstrip("li").capitalize())
 
 # 1.2.5
 print(name[::2])
@@ -78,7 +78,7 @@ is_leap = year % 4 == 0 and year % 100 != 0 or year % 400 == 0
 leap_years = range(1904, 2022, 4)
 
 # 1.3.3
-print(f'Is 2022 a leap year? {2022 in leap_years}')
+print(f"Is 2022 a leap year? {2022 in leap_years}")
 
 # 1.3.4
 leap_years[-1]

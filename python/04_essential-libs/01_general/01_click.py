@@ -1,12 +1,12 @@
 # Import the module
-import click 
+import click
 
 # Initiate the minimal contract of commands
-@click.command() 
+@click.command()
 
 # Define the CLI arguments
-@click.option('--count', default=1, help='Number of greetings.')
-@click.option('--name', prompt='Your name', help='The person to greet.')
+@click.option("--count", default=1, help="Number of greetings.")
+@click.option("--name", prompt="Your name", help="The person to greet.")
 
 # Integrate it in your code
 def hello(count, name):
@@ -14,7 +14,6 @@ def hello(count, name):
     for x in range(count):
         click.echo(f"Hello {name}!")
 
-        
-if __name__ == '__main__':
-    hello()
 
+if __name__ == "__main__":
+    hello()

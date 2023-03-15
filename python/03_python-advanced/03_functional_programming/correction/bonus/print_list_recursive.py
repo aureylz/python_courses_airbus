@@ -1,6 +1,6 @@
 def print_list_recursive(my_list):
     if len(my_list) == 0:
-        return                     
+        return
     else:
-        print(my_list[0])       
-        return print_list_recursive(my_list[1:])  
+        print(my_list[0])
+        return print_list_recursive(my_list[1:])

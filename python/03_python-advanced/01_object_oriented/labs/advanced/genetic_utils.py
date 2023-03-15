@@ -13,7 +13,7 @@ def crossover(parent_1: list, parent_2: list, crossover_rate: float):
     # should we perform genome mix-up off the 2 parents?
     if random() < crossover_rate:
         # choose a crossing point where we'll be splitting up the genetic material
-        pt = randint(1, len(parent_1)-2)
+        pt = randint(1, len(parent_1) - 2)
         # take a first bit of the first parent_1 then the rest of the DNA from parent_2
         child_1 = parent_1[:pt] + parent_2[pt:]
         child_2 = parent_2[:pt] + parent_1[pt:]
@@ -54,15 +54,16 @@ def selection(pop: list, scores: list, k: int = 3):
 
 
 def darwin(
-        init_population_fn,
-        fitness_fn,
-        fitness_threshold: float,
-        decode_fn,
-        population_count: int = 150,
-        genome_size: int = 16,
-        max_generations: int = 100,
-        crossover_rate: float = 0.9,
-        mutation_rate: float = 0.05):
+    init_population_fn,
+    fitness_fn,
+    fitness_threshold: float,
+    decode_fn,
+    population_count: int = 150,
+    genome_size: int = 16,
+    max_generations: int = 100,
+    crossover_rate: float = 0.9,
+    mutation_rate: float = 0.05,
+):
     """
     This is the entry point of the genetic algorithm, where all the magic occurs.
     It mimics the natural species evolution where the most adapted (who has best fitness) has more chance to reproduce.
@@ -81,7 +82,10 @@ def darwin(
     :param mutation_rate:
     :return:
     """
-    def create_next_generation(population: list, crossover_probability: float, mutation_probability: float):
+
+    def create_next_generation(
+        population: list, crossover_probability: float, mutation_probability: float
+    ):
         """create the next generation"""
         new_children: list = []
         for j in range(0, len(population) - 1, 2):
@@ -98,25 +102,31 @@ def darwin(
     best, best_eval = 0, fitness_fn(pop[0])
     # enumerate generations
     for gen in range(max_generations):
-        print(f'Generation #:{gen}')
+        print(f"Generation #:{gen}")
         # evaluate all candidates in the population
         scores = [fitness_fn(c) for c in pop]
         # check for new best solution
         for i in range(population_count):
             if scores[i] > best_eval:
                 best, best_eval = pop[i], scores[i]
-                binary_dna = ''.join(str(gene) for gene in pop[i])
-                print(f"\tFound a better candidate citizen (fitness={scores[i]:4} and DNA={binary_dna})")
+                binary_dna = "".join(str(gene) for gene in pop[i])
+                print(
+                    f"\tFound a better candidate citizen (fitness={scores[i]:4} and DNA={binary_dna})"
+                )
         # select parents
         selected = [selection(pop, scores) for _ in range(population_count)]
         # create the next generation
-        children = create_next_generation(population=selected,
-                                          crossover_probability=crossover_rate,
-                                          mutation_probability=mutation_rate)
+        children = create_next_generation(
+            population=selected,
+            crossover_probability=crossover_rate,
+            mutation_probability=mutation_rate,
+        )
         # replace population
         pop = children
         # if our best fitness (best_eval) is >= than the targeted one (fitness_threshold)
         if best_eval >= fitness_threshold:
-            print(f'I guess I found an acceptable solution (algorithm converged in {gen} generations)')
+            print(
+                f"I guess I found an acceptable solution (algorithm converged in {gen} generations)"
+            )
             break
     return [best, best_eval]

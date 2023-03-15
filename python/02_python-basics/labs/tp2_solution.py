@@ -7,7 +7,7 @@ import sys
 # 2.1 Days
 
 # 2.1.1
-days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 print(days)
 
 # 2.1.2 (example for Wednesday)
@@ -22,34 +22,43 @@ for day in days:
     print(day[:2])
 
 # 2.1.5
-new_day = ''
+new_day = ""
 for day in days:
     new_day += day[5]
 
 # 2.1.6
-days.append('yasdydy')
+days.append("yasdydy")
 
 # 2.1.7
-days.remove('yasdydy')  # or del(days[7]) or days.pop(7)
+days.remove("yasdydy")  # or del(days[7]) or days.pop(7)
 
 # 2.2 Days & mood
 
 # 2.2.1
-days_moods = {days[0]: "Starting the week slowly", days[1]: "Focus on my studies", days[2]: "Looking for a new TV show",
-              days[3]: "Time to have a beer in the city center", days[4]: "Preparing the week-end", days[5]: "Ready for the party!", days[6]: "Studying for tomorrow's  exams"}
+days_moods = {
+    days[0]: "Starting the week slowly",
+    days[1]: "Focus on my studies",
+    days[2]: "Looking for a new TV show",
+    days[3]: "Time to have a beer in the city center",
+    days[4]: "Preparing the week-end",
+    days[5]: "Ready for the party!",
+    days[6]: "Studying for tomorrow's  exams",
+}
 print(days_moods)
 
 # 2.2.2 (example for Wednesday)
-print(days_moods['Wednesday'])
+print(days_moods["Wednesday"])
 
 # 2.2.3
-days_moods['Monday'] = "Starting the week by an exam"
+days_moods["Monday"] = "Starting the week by an exam"
 
 # 2.2.4
 days_moods.popitem()  # or days_moods.pop('Sunday') or del(days_moods['Sunday'])
 
 # 2.2.5
-days_moods.update({'Sunday': 'Relaxing before holidays'})  # or days_moods['Sunday'] = 'Relaxing before holidays'
+days_moods.update(
+    {"Sunday": "Relaxing before holidays"}
+)  # or days_moods['Sunday'] = 'Relaxing before holidays'
 
 # 2.2.6
 shortdays_moods = {day[:3]: mood.split()[0] for day, mood in days_moods.items()}
@@ -67,28 +76,28 @@ f"Today we are {days[date.today().isoweekday()-1]} {date.today().day}"
 
 
 def order(nb):
-    '''
-    Convert integer to ordinal number.  
+    """
+    Convert integer to ordinal number.
     Args:
     -  nb: integer (eg: 1)
     Returns:
     - ordinal number (eg: 1st)
-    '''
+    """
     # Convert to integer (allow string or float nb if value is correct, else raise an error)
     nb = int(nb)
     if nb < 1 or nb > 99:
-        raise ValueError('Number is expected to be > 0 and < 100')
+        raise ValueError("Number is expected to be > 0 and < 100")
     # 1 => 1st, 2 => 2nd, 3 => 3rd, except 11th 12th 13th
     if 11 <= nb <= 13:
-        return str(nb)+'th'
+        return str(nb) + "th"
     if nb % 10 == 1:
-        return str(nb)+'st'
+        return str(nb) + "st"
     if nb % 10 == 2:
-        return str(nb)+'nd'
+        return str(nb) + "nd"
     if nb % 10 == 3:
-        return str(nb)+'rd'
+        return str(nb) + "rd"
     else:
-        return str(nb)+'th'
+        return str(nb) + "th"
 
 
 # 2.3.4

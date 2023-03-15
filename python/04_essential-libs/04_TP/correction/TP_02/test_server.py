@@ -15,11 +15,7 @@ class ServerTestCase(unittest.TestCase):
         self.client = app.test_client()
 
         # User template
-        self.user = {
-            "first_name": "new",
-            "last_name": "user",
-            "department": "cyberAck"
-        }
+        self.user = {"first_name": "new", "last_name": "user", "department": "cyberAck"}
 
     def tearDown(self):
         self.ctx.pop()
@@ -37,33 +33,33 @@ class ServerTestCase(unittest.TestCase):
             self.assertTrue(response.status_code == 200)
 
             data = json.loads(response.text)
-            self.assertIsInstance(data['department'], str)
-            self.assertIsInstance(data['first_name'], str)
-            self.assertIsInstance(data['last_name'], str)
-            self.assertIsInstance(data['uid'], int)
+            self.assertIsInstance(data["department"], str)
+            self.assertIsInstance(data["first_name"], str)
+            self.assertIsInstance(data["last_name"], str)
+            self.assertIsInstance(data["uid"], int)
 
     def test_create_user(self):
         # Test the function: create_user
-        params = '&'.join([f"{i_user}={self.user[i_user]}" for i_user in self.user])
+        params = "&".join([f"{i_user}={self.user[i_user]}" for i_user in self.user])
         response = self.client.post(f"/user?{params}")
         self.assertTrue(response.status_code == 200)
-        self.assertTrue(json.loads(response.text)['uid'] == 6)
+        self.assertTrue(json.loads(response.text)["uid"] == 6)
 
     def test_update_user_by_id(self):
         # Test the function: update_user_by_id
         user = json.loads(self.client.get(f"/user/1").text)
-        user['first_name'] = 'updated'
-        params = '&'.join([f"{i_user}={user[i_user]}" for i_user in user])
+        user["first_name"] = "updated"
+        params = "&".join([f"{i_user}={user[i_user]}" for i_user in user])
         response = self.client.put(f"/user/{user['uid']}?{params}")
 
         self.assertTrue(response.status_code == 200)
-        self.assertTrue(json.loads(response.text)['uid'] == 1)
+        self.assertTrue(json.loads(response.text)["uid"] == 1)
 
     def test_delete_user(self):
         # Test the function: delete_user
         response = self.client.delete("/user/6")
         self.assertTrue(response.status_code == 200)
-        self.assertTrue('ok' in response.text)
+        self.assertTrue("ok" in response.text)
 
     def test_list_user(self):
         # Test the function: list_user

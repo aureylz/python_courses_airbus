@@ -6,7 +6,7 @@ from typing import Union, List
 
 items = [
     {"id": 1, "name": "wine", "description": "french drink", "price": 12.7, "tax": 0.2},
-    {"id": 2, "name": "beer", "description": "fresh drink", "price": 2.01}
+    {"id": 2, "name": "beer", "description": "fresh drink", "price": 2.01},
 ]
 
 
@@ -21,7 +21,7 @@ class Item(BaseModel):
 app = FastAPI()
 
 
-@ app.get("/items/", response_model=List[Item])
+@app.get("/items/", response_model=List[Item])
 async def read_items():
     return items
 
@@ -30,7 +30,7 @@ async def read_items():
 async def read_item(item_id: int):
     # Search the item id and return it found
     for item in items:
-        if item['id'] == item_id:
+        if item["id"] == item_id:
             return item
 
 
@@ -44,7 +44,7 @@ async def create_item(item_id: int, item: Item):
 async def update_item(item: Item):
     # Search the item and update it if found
     for item_id in range(len(items)):
-        if items[item_id]['id'] == item.id:
+        if items[item_id]["id"] == item.id:
             items[item_id] = item.dict()
             return items[item_id]
 

@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup  as BS
+from bs4 import BeautifulSoup as BS
 
 url = "http://localhost:9000/docs"
 
@@ -7,8 +7,8 @@ url = "http://localhost:9000/docs"
 page = requests.get(url)
 
 # Publish the web page in  beautiful soup
-soup = BS(page.text, 'html.parser')
+soup = BS(page.text, "html.parser")
 
 # Print the scripts included in the web page
-for script in soup.find_all('script'):
+for script in soup.find_all("script"):
     print(f"- {script}")

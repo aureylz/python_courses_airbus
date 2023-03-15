@@ -1,0 +1,87 @@
+# Example adaped from https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml
+# The image used according to the technology/language
+image: python:3.10-alpine
+
+stages:
+ - CI
+ - CDelivery
+ - CDeployment
+
+before_script:
+  - python --version  # For debugging
+  - pip install -r requirements.txt
+
+# CI stage ____________________________________________________________________
+unittest:
+  stage: CI
+  script:
+    - pip install pytest
+    - pytest --junitxml=xunit.xml
+  artifacts:
+    paths:
+      - xunit.xml
+      - coverage.json
+
+quality:
+  stage: CI
+  script:
+    - pip install pylint
+    - pylint $(find src/ -name '*.py') -j 4 -r n --msg-template='{path}:{line}:[{msg_id}({symbol}), {obj}] {msg}' --exit-zero > pylint.txt
+    - tail -2 pylint.txt | head -1
+  artifacts:
+    paths:
+      - pylint.txt
+
+coverage:
+  stage: CI
+  script:
+    - pip install coverage
+    - coverage xml -o coverage.xml src/*.py
+  artifacts:
+    paths:
+      - coverage.xml
+
+security:
+  stage: CI
+  script:
+    - pip install bandit
+    - bandit -r -f json --exit-zero -o bandit.json src
+  artifacts:
+    paths:
+      - bandit.json
+
+build:
+  stage: CI
+  script:
+    - pip install build
+    - python -m build
+    - pip install dist/*.tar.gz
+  artifacts:
+    paths:
+      - dist/*.whl
+
+run:
+  stage: CI
+  script:
+    - python src/server.py &
+  artifacts:
+    paths:
+      - server.log
+
+delivery:
+  stage: CDelivery
+  script: echo "Define your delivery script!"
+
+deploy - dev:
+  stage: CDeployment
+  script: echo "Define your deployment script!"
+  environment: development
+  rules:
+    - if: $CI_COMMIT_BRANCH != "main"
+
+deploy - prod:
+  stage: CDeployment
+  script: echo "Define your deployment script!"
+  environment: production
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"

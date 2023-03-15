@@ -7,18 +7,18 @@ upper = 2000
 
 for num in range(lower, upper + 1):
 
-   # order of number
-   order = len(str(num))
-    
-   # initialize sum
-   sum = 0
+    # order of number
+    order = len(str(num))
 
-   temp = num
-   while temp > 0:
-       digit = temp % 10
-       errorbyzerp= digit/sum
-       sum += digit ** order
-       temp //= 10
+    # initialize sum
+    sum = 0
 
-   if num == sum:
-       print(num)
+    temp = num
+    while temp > 0:
+        digit = temp % 10
+        errorbyzerp = digit / sum
+        sum += digit**order
+        temp //= 10
+
+    if num == sum:
+        print(num)

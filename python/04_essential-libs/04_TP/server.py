@@ -21,7 +21,7 @@ class User(BaseModel):
 filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), "user.csv")
 users = []
 with open(filepath, "r") as f:
-    titles = ['uid', 'first_name', 'last_name', 'department']
+    titles = ["uid", "first_name", "last_name", "department"]
     with open(filepath, "r") as f:
         reader = csv.DictReader(f, titles)
         next(reader)  # skip header
@@ -37,7 +37,7 @@ def hello_world():
     return "<p>Hello, World!</p>"
 
 
-@app.route('/user/<int:uid>')
+@app.route("/user/<int:uid>")
 def get_user_by_id(uid):
     # Get a user by it's Id
     return users[uid].__dict__
@@ -48,7 +48,7 @@ def mgt_user():
     # Get and Insert user
 
     # Check if it's the verb is POST (means insert new resource)
-    if request.method == 'POST':
+    if request.method == "POST":
         print("hello")
         return request.form
     args = request.args
@@ -58,12 +58,12 @@ def mgt_user():
     return [usr.__dict__ for usr in users if usr.first_name == user_filtering]
 
 
-@app.route('/users')
+@app.route("/users")
 def get_users():
     # Get the list of user
     return [usr.__dict__ for usr in users]
 
 
 if __name__ == "__main__":
-    # Start the Web server 
+    # Start the Web server
     app.run(debug=True, port=5100)

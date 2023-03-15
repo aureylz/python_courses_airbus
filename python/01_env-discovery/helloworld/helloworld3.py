@@ -14,14 +14,14 @@ class helloworld:
         """
         Basic Hello World. Greet the name stored in the class
         """
-        output= f"Hello, {self.name} !"
+        output = f"Hello, {self.name} !"
         print(output)
 
     def goodbye(self):
         """
         Say Goodbye the name stored in the class
         """
-        output= f"Goodbye, {self.name} !"
+        output = f"Goodbye, {self.name} !"
         print(output)
 
 
@@ -51,8 +51,10 @@ def demo2():
     for name in helloworlds:
         name.goodbye()
 
+
 def demo3():
     pass
+
 
 if __name__ == "__main__":
     # Execute when the module is not initialized from an import statement.

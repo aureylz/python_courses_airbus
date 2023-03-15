@@ -1,10 +1,10 @@
 import os
 from time import sleep
 
-x=os.fork()
+x = os.fork()
 if x:
     identity = "Darth Wader"
-    #sleep(1)
+    # sleep(1)
 else:
     identity = "Luke"
 

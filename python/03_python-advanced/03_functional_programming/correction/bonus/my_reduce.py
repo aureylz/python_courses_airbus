@@ -1,7 +1,7 @@
 def my_reduce(l, f, initializer):
-    if len(l)==0:
+    if len(l) == 0:
         return initializer
-    if len(l)==1:
+    if len(l) == 1:
         if initializer is None:
             return None
         else:

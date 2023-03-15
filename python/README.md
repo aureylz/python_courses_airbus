@@ -10,13 +10,15 @@
 
 ---
 
-## Sub-modules
+## Docs
 
-- [Environment discovery](01_env-discovery/)
-- [Python basics](02_python-basics/)
-- [Python advanced](03_python-advanced/)
-- [Essential libraries](04_essential-libs/)
-- [Cybersec Tools](05_cybersec-tools/)
+- [Introduction (Google Slides)](https://docs.google.com/presentation/d/1Cth-RjR7KV48ojV2SYNl9iJxMXkc7-5hu8CEAlRjW9Q)
+- [Courses and TPs (Markdown)](./)
+    - [Environment discovery](01_env-discovery/)
+    - [Python basics](02_python-basics/)
+    - [Python advanced](03_python-advanced/)
+    - [Essential libraries](04_essential-libs/)
+    - [Cybersec Tools](05_cybersec-tools/)
 
 ---
 
@@ -35,15 +37,7 @@
 | Sébastien ARFORT | :white_check_mark: | :white_check_mark: |
 | Vivek KUMAR | | :white_check_mark: |
 
---
-
-## Sub-modules
-
-- [Environment discovery](01_env-discovery/)
-- [Python basics](02_python-basics/)
-- [Python advanced](03_python-advanced/)
-- [Essential libraries](04_essential-libs/)
-- [Cybersec Tools](05_cybersec-tools/)
+---
 
 ## How to set up and launch the notebook?
 

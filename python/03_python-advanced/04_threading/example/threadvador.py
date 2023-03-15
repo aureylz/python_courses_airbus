@@ -1,11 +1,13 @@
 import threading
 import time
 
+
 def thread_function(ttl):
     name = threading.current_thread().getName()
-    print('[Thread %s] starts' % (name))
+    print("[Thread %s] starts" % (name))
     time.sleep(ttl)
-    print('[Thread %s] diiied' % name)
+    print("[Thread %s] diiied" % name)
+
 
 if __name__ == "__main__":
     print("[Thread Main] start ---")
