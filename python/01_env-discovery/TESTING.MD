@@ -12,7 +12,7 @@ Automated testing is solving this: it's executing your test plan in a reproducib
 
 **Unit testing:** A level of the software testing process where individual units of a software are tested. The purpose is to validate that each unit of the software performs as designed.
 
-**Integration testin**g: A level of software testing where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units.
+**Integration testing**: A level of software testing where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units.
 
 **System testing**: A level of the software testing process where a complete, integrated system is tested. The purpose of this test is to evaluate whether the system as a whole gives the correct outputs for given inputs.
 

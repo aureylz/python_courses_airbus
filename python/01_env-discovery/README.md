@@ -83,9 +83,9 @@ Reasons for this are:
 
 ### Virtual Environments
 
-**Airbus CyberDiploma will use  [virtualenv](https://pythonbasics.org/virtualenv/) for virtual environment** 
+**Airbus CyberDiploma will use  [conda](https://docs.conda.io/en/latest/) for environments** 
 
-[Virtual Environment](VENV.md))
+[conda](CONDA.md))
 
 ### Refactoring
 
@@ -95,16 +95,9 @@ Reasons for this are:
 
 ## Python Environment Installation
 
-* Go to https://www.python.org/downloads/, and install it (don't forget to untick install launcher for all users)
-
-  <img src="README.assets/image-20220715152407575.png" alt="image-20220715152407575" style="zoom:50%;" />
-
-* Search Git and install it:
-
-  <img src="README.assets/image-20220715121932276.png" alt="image-20220715121932276" style="zoom:50%;" />
-
+* Go to https://github.com/conda-forge/miniforge, and install it (don't forget to untick install launcher for all users)
+* You can install it form PC Services as well (if working)
 * Go to https://code.visualstudio.com/Download, Downlaod and install VScode
-* Go to https://github.airbus.corp/connectivity/airbus-ca and download the file bundle under the TL;DR section under Documents/airbus-ca.crt
 
 ## VisualCode Studio (VSCode) Setup
 
@@ -224,51 +217,67 @@ The Settings editor is the UI that lets you review and modify setting values tha
 
 
 
-### Install Python modules with Pip
+### Install Python modules with conda
 
 Installing modules to python is easy. Simply open up your terminal:
 
 ```
-pip install <package name>
-```
-
-If there is an EnvironmentError, it means that Python tries by default to install the package into a system path (if Python was installed by an administrator by example). In this case, --user makes pip install packages in your home directory instead, which doesn't require any special privileges.
-
-```
-pip install <package name> --user
+conda install <package name>
 ```
 
 If there is a requirements.txt file, install them with:
 
 ```
-pip install -r requirements.txt
+conda create -n testenv -f env.yml 
 ```
 
-Example of a requirements.txt file with version pinned (for exemple with a `pip freeze > requirements.txt`):
+Example of a env.yml file with version pinned (for exemple with a `conda env export > env.yml`):
 
 ```
-numpy==1.21.1
-pandas==1.3.1
-seaborn==0.11.1
+name: tutorial-env
+channels:
+  - defaults
+dependencies:
+  - brotli-python=1.1.0=py311hdf8f085_0
+  - bzip2=1.0.8=h0d85af4_4
+  - ca-certificates=2023.7.22=h8857fd0_0
+  - certifi=2023.7.22=pyhd8ed1ab_0
+  - charset-normalizer=3.2.0=pyhd8ed1ab_0
+  - idna=3.4=pyhd8ed1ab_0
+  - libblas=3.9.0=17_osx64_openblas
+  - libcblas=3.9.0=17_osx64_openblas
+  - libcxx=16.0.6=hd57cbcb_0
+  - libexpat=2.5.0=hf0c8a7f_1
+  - libffi=3.4.2=h0d85af4_5
+  - libgfortran=5.0.0=12_3_0_h97931a8_1
+  - libgfortran5=12.3.0=hbd3c1fe_1
+  - liblapack=3.9.0=17_osx64_openblas
+  - libopenblas=0.3.23=openmp_h429af6e_0
+  - libsqlite=3.43.0=h58db7d2_0
+  - libzlib=1.2.13=h8a1eda9_5
+  - llvm-openmp=16.0.6=hff08bdf_0
+  - ncurses=6.4=hf0c8a7f_0
+  - numpy=1.25.2=py311hc44ba51_0
+  - openssl=3.1.2=h8a1eda9_0
+  - pandas=2.1.0=py311hab14417_0
+  - pip=23.2.1=pyhd8ed1ab_0
+  - pysocks=1.7.1=pyha2e5f31_6
+  - python=3.11.5=h30d4d87_0_cpython
+  - python-dateutil=2.8.2=pyhd8ed1ab_0
+  - python-tzdata=2023.3=pyhd8ed1ab_0
+  - python_abi=3.11=3_cp311
+  - pytz=2023.3=pyhd8ed1ab_0
+  - readline=8.2=h9e318b2_1
+  - requests=2.31.0=pyhd8ed1ab_0
+  - setuptools=68.1.2=pyhd8ed1ab_0
+  - six=1.16.0=pyh6c4a22f_0
+  - tk=8.6.12=h5dbffcc_0
+  - tzdata=2023c=h71feb2d_0
+  - urllib3=2.0.4=pyhd8ed1ab_0
+  - wheel=0.41.2=pyhd8ed1ab_0
+  - xz=5.2.6=h775f41a_0
+
 ```
-
-Or without version pinned:
-
-```
-numpy
-pandas
-seaborn
-```
-
-
-
-Tip: Keep up to date with:
-
-```
-python -m pip install --upgrade pip
-```
-
-
 
 ## Module "Hello World"
 
@@ -338,7 +347,7 @@ Open the files helloworld-x, execute them and play with them.
 * Helloworld-4.py: a pretty hello world.
   * Do `Command Pallette > Python: Run Python file in Terminal`
   * What is happening ?
-  * Install the missing library with `pip install rich`
+  * Install the missing library with `conda install rich`
   * Re-run the python code
 
 
