@@ -32,7 +32,7 @@ conda init powershell
 conda create -n tutorial-env python=3.11
 ```
 
-> **_NOTE:_**  You can of course name your environment with something else than "myenv".
+> **_NOTE:_**  You can of course name your environment with something else than "tutorial-env".
 
 
 Once created, you can activate your conda environment by running

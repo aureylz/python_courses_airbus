@@ -96,7 +96,7 @@ Reasons for this are:
 ## Python Environment Installation
 
 * Go to https://github.com/conda-forge/miniforge, and install it (don't forget to untick install launcher for all users)
-* You can install it form PC Services as well (if working)
+* You can install it from Software Centre (:fr:Centre Logiciel) as well (if working)
 * Go to https://code.visualstudio.com/Download, Downlaod and install VScode
 
 ## VisualCode Studio (VSCode) Setup
@@ -225,7 +225,7 @@ Installing modules to python is easy. Simply open up your terminal:
 conda install <package name>
 ```
 
-If there is a requirements.txt file, install them with:
+If there is a env.yml file, install them with:
 
 ```
 conda create -n testenv -f env.yml 
