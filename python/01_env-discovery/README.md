@@ -98,6 +98,10 @@ Reasons for this are:
 * Go to https://github.com/conda-forge/miniforge, and install it (don't forget to untick install launcher for all users)
 * You can install it from Software Centre (:fr:Centre Logiciel) as well (if working)
 * Go to https://code.visualstudio.com/Download, Downlaod and install VScode
+* Install the git client, it'll be useful later on
+
+![git_install](imgs/git.png)
+
 
 ## VisualCode Studio (VSCode) Setup
 
